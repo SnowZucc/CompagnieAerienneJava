@@ -5,7 +5,7 @@ public class Employe extends Personne {
     final int NumeroEmploye;
     final String DateEmbauche;
 
-    public Employe(int Identifiant, String Nom, String Adresse, String Contact, int numeroEmploye, String dateEmbauche) {
+    public Employe(int Identifiant, String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche) {
         super(Identifiant, Nom, Adresse, Contact);
         this.NumeroEmploye = numeroEmploye;
         this.DateEmbauche = dateEmbauche;

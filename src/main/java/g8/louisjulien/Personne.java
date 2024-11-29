@@ -5,9 +5,9 @@ public class Personne {
     int Identifiant;
     String Nom;
     String Adresse;
-    String Contact;
+    int Contact;
 
-    public Personne(int Identifiant, String Nom, String Adresse, String Contact) {
+    public Personne(int Identifiant, String Nom, String Adresse, int Contact) {
         this.Identifiant = Identifiant;
         this.Nom = Nom;
         this.Adresse = Adresse;
@@ -26,16 +26,18 @@ public class Personne {
     public String getAdresse() {
         return Adresse;
     }
-    public String getContact() {
+    public int getContact() {
         return Contact;
     }
 
 
-    public void obtenirInfo() {
-        getIdentifiant();
-        getNom();
-        getAdresse();
-        getContact();
+    public void obtenirInfos() {
+        System.out.println("Informations de " + getNom() + " :");
+
+        System.out.println("Identifiant :" + getIdentifiant());
+        System.out.println("Nom :" + getNom());
+        System.out.println("Adresse :" + getAdresse());
+        System.out.println("Contact :" + getContact());
 
     }
 }
