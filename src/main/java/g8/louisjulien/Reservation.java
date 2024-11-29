@@ -1,5 +1,8 @@
 package g8.louisjulien;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reservation {
     private int numeroReservation;
     private int dateReservation;
@@ -16,4 +19,7 @@ public class Reservation {
     public void modifierReservation() {
 
     }
+
+    public List<Vol> volsReserves = new ArrayList<Vol>();
+
 }

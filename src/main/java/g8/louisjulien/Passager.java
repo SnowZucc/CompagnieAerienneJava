@@ -10,8 +10,9 @@ public class Passager extends Personne {
 
     }
 
-    public void reserverVol() {
-
+    public void reserverVol(Vol vol) {
+        Reservation r = new Reservation(); // Instance de Réservation pour accéder à la méthode d'instance.
+        r.volsReserves.add(vol);
     }
     public void annulerReservation() {
 
