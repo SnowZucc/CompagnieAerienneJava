@@ -9,7 +9,7 @@ public class Avion {
 
     }
 
-    public void verifierDisponobilite() {
+    public void verifierDisponibilite() {
 
     }
 }
