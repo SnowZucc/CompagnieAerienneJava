@@ -2,10 +2,10 @@ package g8.louisjulien;
 
 public class Personne {
 
-    int Identifiant;
-    String Nom;
-    String Adresse;
-    int Contact;
+    public int Identifiant;
+    public String Nom;
+    private String Adresse;
+    public int Contact;
 
     public Personne(int Identifiant, String Nom, String Adresse, int Contact) {
         this.Identifiant = Identifiant;
