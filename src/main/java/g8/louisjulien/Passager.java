@@ -1,34 +1,38 @@
 package g8.louisjulien;
 
+import java.util.HashMap;
+
 public class Passager extends Personne {
 
-    Object Passeport;
+    private Object Passeport;
+    private int nbReservations;
 
     public Passager(int Identifiant, String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, Object Passeport) {
         super(Identifiant, Nom, Adresse, Contact);
         this.Passeport = Passeport;
-
+        this.nbReservations = 0;
     }
 
 
-    Reservation r = new Reservation(); // Instance de Réservation pour accéder à la méthode d'instance.
-    public void reserverVol(Reservation vol) {
-        r.volsReserves.add(vol);
+    public Object getPasseport() {
+        return Passeport;
     }
-    public void annulerReservation(Reservation vol) {
-        r.volsReserves.remove(vol);
+    public void setPasseport(Object Passeport) {
+        this.Passeport = Passeport;
     }
-    public void obtenirReservations(int numeroReservations) {
-        Reservation rTrouve = null;
-        for (Reservation reservation : r.volsReserves) {
-            if (reservation.numeroReservation == numeroReservations) {
-                rTrouve = reservation;
-                break;
-            }
-        }
-        System.out.println(rTrouve.getDateReservation());
-        System.out.println(rTrouve.getStatut());
+    HashMap<Integer, Reservation> listeReservations = new HashMap<>();
+    public void reserverVol(Vol vol) {
+        listeReservations.put(r.numeroReservation, r);
+        nbReservations++;
+        listeReservations.put(nbReservations, new Reservation());
     }
-
+    public void annulerReservation(int id) {
+        listeReservations.get(id) = new Reservation();
+        listeReservations.remove(id);
+    }
+    public void obtenirReservations(int id) {
+        System.out.println(listeReservations.get(id).getDateReservation());
+        System.out.println(listeReservations.get(id).getStatut());
+    }
 
 }
