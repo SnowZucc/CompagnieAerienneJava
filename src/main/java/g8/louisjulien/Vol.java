@@ -9,10 +9,33 @@ public class Vol {
     private String dateHeureDepart;
     private String dateHeureArrivee;
     private String Etat;
-    public int indexVol;    // Pour définir le numéro des prochains vols
+    public static int indexVol;    // Pour définir le numéro des prochains vols (static car partagé entre instances)
 
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
 
+    public int obtenirNumeroVol() {         // Getters pour pouvoir utiliser les attributs dans main, etc.
+        return this.numeroVol;
+    }
+
+    public String obtenirOrigine() {
+        return this.Origine;
+    }
+
+    public String obtenirDestination() {
+        return this.Destination;
+    }
+
+    public String obtenirDateHeureDepart() {
+        return this.dateHeureDepart;
+    }
+
+    public String obtenirDateHeureArrivee() {
+        return this.dateHeureArrivee;
+    }
+
+    public String obtenirEtat() {
+        return this.Etat;
+    }
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
     public void planifierVol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
         this.Origine = Origine;
@@ -26,7 +49,7 @@ public class Vol {
         listeVolsPlanifies.add(this);       // Ajoute un objet Vol dans la liste avec tous les attributs qu'on a attribués à l'instance de la classe actuelle (vol1 etc)
     }
 
-    public void annulervol(int numeroVol) {
+    public static void annulervol(int numeroVol) {
         this.numeroVol = numeroVol;
         for (Vol v : listeVolsPlanifies) {
             if (v.numeroVol == numeroVol) {
@@ -36,9 +59,7 @@ public class Vol {
         }
     }
 
-    public int obtenirNumeroVol() {         // Getter pour pouvoir utiliser numeroVol dans main, etc.
-        return this.numeroVol;
-    }
+
 
     public void modifierVol() {
 
