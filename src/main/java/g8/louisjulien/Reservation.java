@@ -6,22 +6,22 @@ import java.util.List;
 
 public class Reservation {
     public int numeroReservation;
-    private int dateReservation;
+    private LocalDateTime dateReservation;
     private String statut;
     private Passager passager;
     private Vol vol;
 
     public List<Reservation> volsReserves = new ArrayList<Reservation>();
 
-    public Reservation(int numeroReservation, int dateReservation, Passager passager, Vol vol) {
+    public Reservation(int numeroReservation, Passager passager, Vol vol) {
         this.numeroReservation = numeroReservation;
-        this.dateReservation = dateReservation;
-        this.statut = "Non reservé";
+        this.dateReservation = LocalDateTime.now();
+        this.statut = "Non confirmée";
         this.passager = passager;
         this.vol = vol;
     }
 
-    public int getDateReservation() {
+    public LocalDateTime getDateReservation() {
         return dateReservation;
     }
     public String getStatut() {
@@ -33,7 +33,7 @@ public class Reservation {
         this.numeroReservation = numeroReservation;
         for (Reservation r : volsReserves) {
             if (r.numeroReservation == numeroReservation) {
-                r.statut = "Reservé";
+                r.statut = "Confirmée";
                 break;
             }
         }
@@ -51,11 +51,11 @@ public class Reservation {
     }
 
     // Pareil mais pour modifier les attributs
-    public void modifierReservation(int numeroReservation, int date, String statut, Passager passager, Vol vol) {
+    public void modifierReservation(int numeroReservation, String statut, Passager passager, Vol vol) {
         this.numeroReservation = numeroReservation;
         for (Reservation r : volsReserves) {
             if (r.numeroReservation == numeroReservation) {
-                r.dateReservation = date;
+                r.dateReservation = LocalDateTime.now();
                 r.statut = statut;
                 r.passager = passager;
                 r.vol = vol;

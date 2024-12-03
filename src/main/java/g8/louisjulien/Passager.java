@@ -23,17 +23,15 @@ public class Passager extends Personne {
     }
 
     public void reserverVol(Vol vol) {
-        listeReservations.put(r.numeroReservation, r);
         nbReservations++;
-        listeReservations.put(nbReservations, new Reservation());
+        listeReservations.put(nbReservations, new Reservation(nbReservations, this, vol));
     }
     public void annulerReservation(int id) {
-        listeReservations.get(id) = new Reservation();
+        nbReservations--;
         listeReservations.remove(id);
     }
-    public void obtenirReservations(int id) {
-        System.out.println(listeReservations.get(id).getDateReservation());
-        System.out.println(listeReservations.get(id).getStatut());
+    public String obtenirReservations(int id) {
+        return listeReservations.get(id).toString();
     }
 
 }

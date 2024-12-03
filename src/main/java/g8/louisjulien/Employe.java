@@ -11,7 +11,7 @@ public class Employe extends Personne {
         this.DateEmbauche = dateEmbauche;
     }
 
-    public int obtenirRole() {
-        return Identifiant;
+    public String obtenirRole() {
+        return "Rôle de l'employé " + this.NumeroEmploye + this.getClass().getName();
     }
 }
