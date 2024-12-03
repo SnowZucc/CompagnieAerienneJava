@@ -14,11 +14,12 @@ public class Vol {
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
 
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
-    public void planifierVol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee, Boolean Etat) {
+    public void planifierVol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
         this.Origine = Origine;
         this.Destination = Destination;
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
+        this.Etat = "Planifié";
         this.numeroVol = indexVol;  // Numéro de vol depuis l'index puis ajoute 1 à l'index
         indexVol+=1;
 
@@ -33,6 +34,10 @@ public class Vol {
                 break;
             }
         }
+    }
+
+    public int obtenirNumeroVol() {         // Getter pour pouvoir utiliser numeroVol dans main, etc.
+        return this.numeroVol;
     }
 
     public void modifierVol() {
