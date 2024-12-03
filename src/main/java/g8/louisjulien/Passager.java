@@ -7,12 +7,13 @@ public class Passager extends Personne {
     private Object Passeport;
     private int nbReservations;
 
+    HashMap<Integer, Reservation> listeReservations = new HashMap<>();
+
     public Passager(int Identifiant, String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, Object Passeport) {
         super(Identifiant, Nom, Adresse, Contact);
         this.Passeport = Passeport;
         this.nbReservations = 0;
     }
-
 
     public Object getPasseport() {
         return Passeport;
@@ -20,7 +21,7 @@ public class Passager extends Personne {
     public void setPasseport(Object Passeport) {
         this.Passeport = Passeport;
     }
-    HashMap<Integer, Reservation> listeReservations = new HashMap<>();
+
     public void reserverVol(Vol vol) {
         listeReservations.put(r.numeroReservation, r);
         nbReservations++;
