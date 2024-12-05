@@ -28,6 +28,10 @@ public class Reservation {
         return statut;
     }
 
+    public int getNumeroReservation() {
+        return numeroReservation;
+    }
+
     // Cherche la réservation qui correspond au numéro dans la liste et change son statut en true
     public void confirmerReservation(int numeroReservation) {
         this.numeroReservation = numeroReservation;

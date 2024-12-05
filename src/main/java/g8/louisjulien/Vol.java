@@ -60,11 +60,20 @@ public class Vol {
         }
     }
 
-    public void modifierVol() {
-
+    public void modifierVol(String origine, String destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
+        this.Origine = origine;
+        this.Destination = destination;
+        this.dateHeureDepart = dateHeureDepart;
+        this.dateHeureArrivee = dateHeureArrivee;
+        this.Etat = etat;
     }
 
     public void listingPassager() {
-
+        System.out.println("Liste des passagers pour le vol N°" + numeroVol + " :");
+        for (Reservation reservation : Passager.listeReservations.values()) {
+            if (reservation.getNumeroReservation() == this.numeroVol) {
+                System.out.println("Passager : " + reservation.getPassager().getNom());
+            }
+        }
     }
 }

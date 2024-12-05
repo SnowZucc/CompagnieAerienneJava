@@ -22,6 +22,10 @@ public class Passager extends Personne {
         this.Passeport = Passeport;
     }
 
+    public int getIdentifiant() {
+        return Identifiant;
+    }
+
     public void reserverVol(Vol vol) {
         nbReservations++;
         listeReservations.put(nbReservations, new Reservation(nbReservations, this, vol));
