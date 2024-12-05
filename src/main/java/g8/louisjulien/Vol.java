@@ -49,17 +49,16 @@ public class Vol {
         listeVolsPlanifies.add(this);       // Ajoute un objet Vol dans la liste avec tous les attributs qu'on a attribués à l'instance de la classe actuelle (vol1 etc)
     }
 
-    public static void annulervol(int numeroVol) {
-        this.numeroVol = numeroVol;
+    public static void annulervol(int numeroVol) {      // BUG : annuler vol 1 annule vol 1 et 2.
+        //this.numeroVol = numeroVol;
         for (Vol v : listeVolsPlanifies) {
             if (v.numeroVol == numeroVol) {
                 v.Etat = "Annulé";
+                System.out.println("Le vol " + numeroVol + " a été annulé.");
                 break;
             }
         }
     }
-
-
 
     public void modifierVol() {
 
