@@ -91,6 +91,14 @@ public class Vol {
         return this.Destination;
     }
 
+    public String getOriginePasTableau() {
+        return String.join(", ", this.Origine);         // Pas propre du tout mais sinon c'est un enfer
+    }
+
+    public String getDestinationPasTableau() {
+        return String.join(", ", this.Destination);
+    }
+
     public String getDateHeureDepart() {
         return this.dateHeureDepart;
     }
@@ -111,11 +119,10 @@ public class Vol {
 
     }
 
-
     @Override
     public String toString() {
         return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :"
-                + "\nOrigine:" + String.join(", ", this.Origine)
+                + "\nOrigine:" + String.join(", ", this.Origine)            // On dois utiliser join car nous avons le String dans un tableau
                 + "\nDestination:" + String.join(", ", this.Destination)
                 + "\nDateHeureDepart:" + this.dateHeureDepart
                 + "\nDateHeureArrivee:" + this.dateHeureArrivee

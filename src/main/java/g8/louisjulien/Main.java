@@ -57,7 +57,7 @@ public class Main {
         List<Vol> volsPourLaDate = Vol.planifierVol("01/01/2024");// Création liste des vols pour un jour avec planifierVol
 
         for (Vol vol : volsPourLaDate) {
-            System.out.println("Vol N°" + vol.getNumeroVol() + " - Origine : " + vol.getOrigine() + " -> Destination : " + vol.getDestination());
+            System.out.println("Vol N°" + vol.getNumeroVol() + " - Origine : " + vol.getOriginePasTableau() + " -> Destination : " + vol.getDestinationPasTableau());
         }
         System.out.println();
 
@@ -96,6 +96,6 @@ public class Main {
 
         System.out.println("\nInversement de l'origine et de la destination :");
         res1 = Passager.listeReservations.get(1);
-        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
+        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOriginePasTableau() + " -> " + res1.getVol().getDestinationPasTableau());
     }
 }
