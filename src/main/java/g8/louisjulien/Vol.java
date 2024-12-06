@@ -22,21 +22,14 @@ public class Vol {
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
         this.Etat = "En attente";
+        listeVolsPlanifies.add(this);
     }
 
     // !!! METHODE A REFAIRE: il faut planifier tous les vols d'une journée,
     // i.e regarder la date et l'heure des vols et les ajouter à une liste !!!
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
-    public void planifierVol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
-        this.Origine = Origine;
-        this.Destination = Destination;
-        this.dateHeureDepart = dateHeureDepart;
-        this.dateHeureArrivee = dateHeureArrivee;
-        this.Etat = "Planifié";
-        this.numeroVol = indexVol;  // Numéro de vol depuis l'index puis ajoute 1 à l'index
-        indexVol+=1;
-
-        listeVolsPlanifies.add(this);       // Ajoute un objet Vol dans la liste avec tous les attributs qu'on a attribués à l'instance de la classe actuelle (vol1 etc)
+    public void planifierVol(int numeroVol) {
+        this.Etat = "Planifié";// Ajoute un objet Vol dans la liste avec tous les attributs qu'on a attribués à l'instance de la classe actuelle (vol1 etc)
     }
 
     public static void annulerVol(int numeroVol) {      // BUG : annuler vol 1 annule vol 1 et 2.
