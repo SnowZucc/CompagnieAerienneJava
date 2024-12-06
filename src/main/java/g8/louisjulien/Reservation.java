@@ -3,7 +3,6 @@ package g8.louisjulien;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-
 public class Reservation {
     public int numeroReservation;
     private LocalDateTime dateReservation;
@@ -19,17 +18,6 @@ public class Reservation {
         this.vol = vol;
     }
 
-    public LocalDateTime getDateReservation() {
-        return dateReservation;
-    }
-    public String getStatut() {
-        return statut;
-    }
-
-    public int getNumeroReservation() {
-        return numeroReservation;
-    }
-
     // Cherche la réservation qui correspond au numéro dans la liste et change son statut en true
     public void confirmerReservation(int numeroReservation) {
         this.numeroReservation = numeroReservation;
@@ -41,12 +29,10 @@ public class Reservation {
         }
     }
 
-
     public static void annulerReservation(int numeroReservation) {
         Passager.listeReservations.get(numeroReservation).statut = "Annulée";
         Passager.listeReservations.remove(numeroReservation);
     }
-
 
     public void modifierReservation(int numeroReservation, String statut, Passager passager, Vol vol) {
         Reservation r = Passager.listeReservations.get(numeroReservation);
@@ -56,17 +42,11 @@ public class Reservation {
         r.vol = vol;
     }
 
+    public String getStatut() {
+        return statut;
+    }
 
-    public Passager getPassager() {
-        return passager;
-    }
-    public void setPassager(Passager passager) {
-        this.passager = passager;
-    }
     public Vol getVol() {
         return vol;
-    }
-    public void setVol(Vol vol) {
-        this.vol = vol;
     }
 }

@@ -82,7 +82,6 @@ public class Vol {
         }
     }
 
-
     public boolean chevauche(Vol autreVol) {
         // Conflit temporel : les deux plages se chevauchent
         boolean chevauchementTemporel = !(this.dateHeureArrivee.isBefore(autreVol.dateHeureDepart) ||
@@ -92,6 +91,37 @@ public class Vol {
 
         return chevauchementTemporel && correspondanceAeroports;
     }
+
+    public static void plusPopulaires() {
+        Map<String, Integer> destinationCount = new HashMap<>();
+
+        for (Vol vol : Vol.listeVolsPlanifies) {
+            String destination = vol.getDestination()[0];       // Récupère la destination du vol
+            int nbPassagers = vol.listePassagers.size();        // Compte le nombre de passagers sur ce vol
+            destinationCount.put(destination, destinationCount.getOrDefault(destination, 0) + nbPassagers); // Ajouter au compteur
+        }
+
+        System.out.println("===== Destinations populaires =====");
+        for (Map.Entry<String, Integer> entry : destinationCount.entrySet()) {
+            System.out.println("Destination: " + entry.getKey() + " - Nombre de passagers: " + entry.getValue());
+        }
+        System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :"
+                + "\nOrigine:" + String.join(", ", this.Origine)            // On dois utiliser join car nous avons le String dans un tableau
+                + "\nDestination:" + String.join(", ", this.Destination)
+                + "\nDateHeureDepart:" + this.dateHeureDepart
+                + "\nDateHeureArrivee:" + this.dateHeureArrivee
+                + "\nAvion:" + this.avion
+                + "\nPersonnel Cabine:" + this.personnelCab
+                + "\nPilotes:" + this.pilotes
+                + "\nEtat:" + this.Etat;
+
+    }
+
 //    -----------------------------------------  GETTERS  ---------------------------------------------------------
 
     public int getNumeroVol() {         // Getters pour pouvoir utiliser les attributs dans main, etc.
@@ -114,14 +144,6 @@ public class Vol {
         return String.join(", ", this.Destination);
     }
 
-    public LocalDateTime getDateHeureDepart() {
-        return this.dateHeureDepart;
-    }
-
-    public LocalDateTime getDateHeureArrivee() {
-        return this.dateHeureArrivee;
-    }
-
     public String getEtat() {
         return this.Etat;
     }
@@ -129,6 +151,7 @@ public class Vol {
     public HashMap<String, ArrayList<String>> getEquipage() {
         return this.equipage;
     }
+
     public Avion getAvion() {
         return this.avion;
 
@@ -136,41 +159,5 @@ public class Vol {
 
     public static double getRevenus() {
         return Revenus;
-    }
-
-    public static void plusPopulaires() {
-        Map<String, Integer> destinationCount = new HashMap<>();
-
-        // Parcours de tous les vols planifiés
-        for (Vol vol : Vol.listeVolsPlanifies) {
-            // Récupérer la destination principale du vol
-            String destination = vol.getDestination()[0];
-            // Compter le nombre de passagers sur ce vol
-            int nbPassagers = vol.listePassagers.size();
-
-            // Incrémenter le compteur de la destination
-            destinationCount.put(destination, destinationCount.getOrDefault(destination, 0) + nbPassagers);
-        }
-
-        // Afficher les résultats sans tri
-        System.out.println("=== Destinations populaires ===");
-        for (Map.Entry<String, Integer> entry : destinationCount.entrySet()) {
-            System.out.println("Destination: " + entry.getKey() + " - Nombre de passagers: " + entry.getValue());
-        }
-        System.out.println();
-    }
-
-    @Override
-    public String toString() {
-        return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :"
-                + "\nOrigine:" + String.join(", ", this.Origine)            // On dois utiliser join car nous avons le String dans un tableau
-                + "\nDestination:" + String.join(", ", this.Destination)
-                + "\nDateHeureDepart:" + this.dateHeureDepart
-                + "\nDateHeureArrivee:" + this.dateHeureArrivee
-                + "\nAvion:" + this.avion
-                + "\nPersonnel Cabine:" + this.personnelCab
-                + "\nPilotes:" + this.pilotes
-                + "\nEtat:" + this.Etat;
-
     }
 }

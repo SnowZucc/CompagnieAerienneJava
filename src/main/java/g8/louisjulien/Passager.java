@@ -3,7 +3,6 @@ package g8.louisjulien;
 import java.util.HashMap;
 
 public class Passager extends Personne {
-
     private Object Passeport;
     private int nbReservations;
 
@@ -13,18 +12,6 @@ public class Passager extends Personne {
         super(Nom, Adresse, Contact);
         this.Passeport = Passeport;
         this.nbReservations = 0;
-    }
-
-    public Object getPasseport() {
-        return Passeport;
-    }
-
-    public void setPasseport(Object Passeport) {
-        this.Passeport = Passeport;
-    }
-
-    public int getIdentifiant() {
-        return Identifiant;
     }
 
     public void reserverVol(Vol vol) {
@@ -50,5 +37,13 @@ public class Passager extends Personne {
                     " - Statut : " + res.getStatut());
         }
         System.out.println();
+    }
+
+    public Object getPasseport() {
+        return Passeport;
+    }
+
+    public int getIdentifiant() {
+        return Identifiant;
     }
 }

@@ -1,7 +1,6 @@
 package g8.louisjulien;
 
 public class Employe extends Personne {
-
     final int NumeroEmploye;
     final String DateEmbauche;
 

@@ -19,9 +19,6 @@ public class Personne {
     public int getIdentifiant() {
         return Identifiant;
     }
-    public void setIdentifiant(int Identifiant) {
-        this.Identifiant = Identifiant;
-    }
     public String getNom() {
         return Nom;
     }
