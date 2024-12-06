@@ -14,13 +14,14 @@ public class Vol {
 
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
 
-    public Vol(int numeroVol, String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
-        this.numeroVol = numeroVol;
+    public Vol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
+        this.numeroVol = indexVol;
+        indexVol+=1;
         this.Origine = Origine;
         this.Destination = Destination;
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
-        this.Etat = etat;
+        this.Etat = "En attente";
     }
 
     // !!! METHODE A REFAIRE: il faut planifier tous les vols d'une journée,

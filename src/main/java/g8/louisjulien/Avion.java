@@ -16,20 +16,20 @@ public class Avion {
 
 
 
-    public HashMap<Integer, Avion> avionsDispo = new HashMap<>();
-    public void affecterVol(Vol vol) {
-        if (verifierDisponibilite(vol)) {
-            avionsDispo.remove(this.Immatriculation);
+//    public HashMap<Integer, Avion> avionsDispo = new HashMap<>();
+//    public void affecterVol(Vol vol) {
+//        if (verifierDisponibilite(vol)) {
+//            avionsDispo.remove(this.Immatriculation);
+//
+//        }
+//    }
 
-        }
-    }
-
-    public boolean verifierDisponibilite(Vol vol) {
-        if (vol.getDateHeureDepart() == ) {
-            return true;
-        }
-        return false;
-    }
+//    public boolean verifierDisponibilite(Vol vol) {
+//        if (vol.getDateHeureDepart() == ) {
+//            return true;
+//        }
+//        return false;
+//    }
 
 
 //    -----------------------------------------  GETTERS  ---------------------------------------------------------

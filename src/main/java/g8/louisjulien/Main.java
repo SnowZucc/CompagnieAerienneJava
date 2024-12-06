@@ -2,14 +2,14 @@ package g8.louisjulien;
 
 public class Main {
     public static void main(String[] args) {
-        Vol vol1 = new Vol();
-        Vol vol2 = new Vol();
-        Vol vol3 = new Vol();
+        Vol vol1 = new Vol("Paris", "Tokyo", "12h", "00h");
+        Vol vol2 = new Vol("Paris", "Tokyo", "12h", "00h");
+        Vol vol3 = new Vol("Paris", "Tokyo", "12h", "00h");
 
         // Classe vol
-        vol1.planifierVol("Paris", "Tokyo", "03/12/24 23:00", "04/12/24 11:00");
-        vol2.planifierVol("Tokyo", "Paris", "10/12/24 10:00", "10/12/24 22:00");
-        vol3.planifierVol("Tokyo", "Paris", "10/12/24 10:00", "10/12/24 22:00");
+//        vol1.planifierVol("Paris", "Tokyo", "03/12/24 23:00", "04/12/24 11:00");
+//        vol2.planifierVol("Tokyo", "Paris", "10/12/24 10:00", "10/12/24 22:00");
+//        vol3.planifierVol("Tokyo", "Paris", "10/12/24 10:00", "10/12/24 22:00");
 
         // Afficher les vols planifiés
             for (int i = 0; i < Vol.listeVolsPlanifies.size(); i++) {
