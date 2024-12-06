@@ -62,10 +62,6 @@ public class Main {
         System.out.println("État: " + vol1.getEtat());
         System.out.println();
 
-        // Afficher la liste des passagers
-        System.out.println("Listing passagers");
-        vol1.listingPassager();
-
         Passager passager1 = new Passager(1, "Jean-Marc", "123 Rue du nhfruogerhngerhilfh", 123456789, 0, "2024-12-01", "ABCDEF");
 
         // Test de réservation
@@ -80,6 +76,12 @@ public class Main {
             Reservation res = Passager.listeReservations.get(id);
             System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().getOrigine() + " -> " + res.getVol().getDestination());
         }
+
+        // Afficher la liste des passagers
+        System.out.println("Listing passagers");
+        vol1.listingPassager();
+        vol2.listingPassager();
+        vol3.listingPassager();
 
         // Test de confirmation de réservation
         System.out.println("\nConfirmation de la réservation N°1...");

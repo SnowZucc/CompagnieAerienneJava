@@ -69,6 +69,7 @@ public class Vol {
         System.out.println("Liste des passagers pour le vol N°" + this.numeroVol + " :");
         for (Passager p : listePassagers) {
             System.out.println("Passager : " + p.getNom());
+            System.out.println();
         }
     }
 //    -----------------------------------------  GETTERS  ---------------------------------------------------------
