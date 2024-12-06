@@ -44,8 +44,8 @@ public class Passager extends Personne {
         System.out.println("Réservations du passager " + this.getNom() + " :");
         for (int id : listeReservations.keySet()) {
             Reservation res = listeReservations.get(id);
-            System.out.println("Réservation N°" + res.numeroReservation + " - Vol : " +
-                    res.getVol().getOrigine() + " -> " + res.getVol().getDestination() +
+            System.out.println("Réservation N°" + res.numeroReservation + " - Vol : " +                // Accès aux indices spécifiques des tableaux Origine et Destination
+                    res.getVol().getOrigine()[0] + " -> " + res.getVol().getDestination()[0] +
                     " - Statut : " + res.getStatut());
         }
         System.out.println();

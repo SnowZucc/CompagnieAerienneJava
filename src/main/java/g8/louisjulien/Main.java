@@ -8,6 +8,31 @@ public class Main {
         Vol vol2 = new Vol("Tokyo", "Paris", "01/01/2024 00h", "12h");
         Vol vol3 = new Vol("Paris", "Berlin", "28/01/2024 16h", "20h");
 
+        // Affectation des personnes et du personnel
+        System.out.println("==== Classe personne =====");
+        Personne frederic = new Personne( "Frédéric", "12 rue de Vanves, Issy", 0);
+        frederic.obtenirInfos();
+
+        System.out.println("==== Classe employé =====");
+        System.out.println("Pilote");
+        Pilote jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
+        String roleJeff = jeff.obtenirRole();
+        System.out.println(roleJeff);
+        jeff.affecterVol(vol1);
+        System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
+        jeff.obtenirVol(vol1.getNumeroVol());
+        System.out.println();
+
+        System.out.println("Personnel cabine");
+        PersonnelCabine jose = new PersonnelCabine(420, "José", "6e cercle de l'Enfer",  466827959, 1000, "01/01/1945", "pas qualifié");
+        System.out.println(jose.obtenirRole());
+        jose.affecterVol(vol1);
+        System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
+        jose.obtenirVol(vol1.getNumeroVol());
+        System.out.println();
+
+        // Affectation aéroport [à faire]
+
         System.out.println("===== Classe vol =====");
         System.out.println("Affichage des vols planifiés");
         System.out.println("Il y a " + Vol.listeVolsPlanifies.size() + " vols planifiés.");
@@ -72,27 +97,5 @@ public class Main {
         System.out.println("\nInversement de l'origine et de la destination :");
         res1 = Passager.listeReservations.get(1);
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
-
-        System.out.println("==== Classe personne =====");
-        Personne frederic = new Personne( "Frédéric", "12 rue de Vanves, Issy", 0);
-        frederic.obtenirInfos();
-
-        System.out.println("==== Classe employé =====");
-        System.out.println("Pilote");
-        Pilote jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
-        String roleJeff = jeff.obtenirRole();
-        System.out.println(roleJeff);
-        jeff.affecterVol(vol1);
-        System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
-        jeff.obtenirVol(vol1.getNumeroVol());
-        System.out.println();
-
-        System.out.println("Personnel cabine");
-        PersonnelCabine jose = new PersonnelCabine(420, "José", "6e cercle de l'Enfer",  466827959, 1000, "01/01/1945", "pas qualifié");
-        System.out.println(jose.obtenirRole());
-        jose.affecterVol(vol1);
-        System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
-        jose.obtenirVol(vol1.getNumeroVol());
-        System.out.println();
     }
 }

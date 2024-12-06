@@ -114,8 +114,8 @@ public class Vol {
     @Override
     public String toString() {
         return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :\n"
-                + "Origine:" + this.Origine
-                + "\nDestination:" + this.Destination
+                + "Origine:" + String.join(", ", this.Origine)
+                + "\nDestination:" + String.join(", ", this.Destination)
                 + "\nDateHeureDepart:" + this.dateHeureDepart
                 + "\nDateHeureArrivee:" + this.dateHeureArrivee
                 + "\nEtat:" + this.Etat
