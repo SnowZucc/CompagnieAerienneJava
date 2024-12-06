@@ -4,13 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Vol {
-    private int numeroVol;
+    private final int numeroVol;
     private String Origine;
     private String Destination;
     private String dateHeureDepart;
     private String dateHeureArrivee;
-    private String Etat; // 4 états: En attente, En cours, Terminé, Annulé
+    private String Etat; // 3 états: Planifié, Annulé, Modifié
     public static int indexVol;    // Pour définir le numéro des prochains vols (static car partagé entre instances)
+
+    private Avion avion;
+    private HashMap<String, ArrayList<String>> equipage;
 
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
 
@@ -21,13 +24,14 @@ public class Vol {
         this.Destination = Destination;
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
-        this.Etat = "En attente";
+        this.Etat = "Planifié";
         listeVolsPlanifies.add(this);
     }
 
     // !!! METHODE A REFAIRE: il faut planifier tous les vols d'une journée,
     // i.e regarder la date et l'heure des vols et les ajouter à une liste !!!
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
+
     public void planifierVol(int numeroVol) {
         this.Etat = "Planifié";// Ajoute un objet Vol dans la liste avec tous les attributs qu'on a attribués à l'instance de la classe actuelle (vol1 etc)
     }
@@ -82,5 +86,12 @@ public class Vol {
 
     public String getEtat() {
         return this.Etat;
+    }
+
+    public HashMap<String, ArrayList<String>> getEquipage() {
+        return this.equipage;
+    }
+    public Avion getAvion() {
+        return this.avion;
     }
 }
