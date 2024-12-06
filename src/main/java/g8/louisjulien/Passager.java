@@ -29,10 +29,12 @@ public class Passager extends Personne {
     public void reserverVol(Vol vol) {
         nbReservations++;
         listeReservations.put(nbReservations, new Reservation(nbReservations, this, vol));
+        vol.listePassagers.add(this);
     }
     public void annulerReservation(int id) {
         nbReservations--;
         listeReservations.remove(id);
+        listeReservations.get(id).getVol().listePassagers.remove(this);
     }
     public String obtenirReservations(int id) {
         return listeReservations.get(id).toString();

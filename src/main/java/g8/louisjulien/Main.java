@@ -14,36 +14,36 @@ public class Main {
         // Afficher les vols planifiés
             for (int i = 0; i < Vol.listeVolsPlanifies.size(); i++) {
                 Vol vol = Vol.listeVolsPlanifies.get(i);                        // Récupère le vol à l'index i
-                System.out.println("Numéro du vol: " + vol.obtenirNumeroVol());
-                System.out.println("Origine: " + vol.obtenirOrigine());
-                System.out.println("Destination: " + vol.obtenirDestination());
-                System.out.println("Date et Heure de départ: " + vol.obtenirDateHeureDepart());
-                System.out.println("Date et Heure d'arrivée: " + vol.obtenirDateHeureArrivee());
-                System.out.println("État: " + vol.obtenirEtat());
+                System.out.println("Numéro du vol: " + vol.getNumeroVol());
+                System.out.println("Origine: " + vol.getOrigine());
+                System.out.println("Destination: " + vol.getDestination());
+                System.out.println("Date et Heure de départ: " + vol.getDateHeureDepart());
+                System.out.println("Date et Heure d'arrivée: " + vol.getDateHeureArrivee());
+                System.out.println("État: " + vol.getEtat());
                 System.out.println();
             }
 
-        Vol.annulervol(1);
+        Vol.annulerVol(1);
 
             // Voir si vol2 a été annulé
-        System.out.println("Numéro du vol: " + vol1.obtenirNumeroVol());
-        System.out.println("État: " + vol2.obtenirEtat());
-            System.out.println("Numéro du vol: " + vol2.obtenirNumeroVol());
-            System.out.println("État: " + vol2.obtenirEtat());
-        System.out.println("Numéro du vol: " + vol3.obtenirNumeroVol());
-        System.out.println("État: " + vol3.obtenirEtat());
+        System.out.println("Numéro du vol: " + vol1.getNumeroVol());
+        System.out.println("État: " + vol2.getEtat());
+            System.out.println("Numéro du vol: " + vol2.getNumeroVol());
+            System.out.println("État: " + vol2.getEtat());
+        System.out.println("Numéro du vol: " + vol3.getNumeroVol());
+        System.out.println("État: " + vol3.getEtat());
             System.out.println();
 
         vol1.modifierVol("Paris", "Berlin", "2024-12-01 14:00", "2024-12-01 16:00", "Modifié");
         System.out.println("Vol 1 modifié");
 
         // Voir si vol2 a été modifié
-        System.out.println("Numéro du vol: " + vol1.obtenirNumeroVol());
-        System.out.println("Origine: " + vol1.obtenirOrigine());
-        System.out.println("Destination: " + vol1.obtenirDestination());
-        System.out.println("Date et Heure de départ: " + vol1.obtenirDateHeureDepart());
-        System.out.println("Date et Heure d'arrivée: " + vol1.obtenirDateHeureArrivee());
-        System.out.println("État: " + vol1.obtenirEtat());
+        System.out.println("Numéro du vol: " + vol1.getNumeroVol());
+        System.out.println("Origine: " + vol1.getOrigine());
+        System.out.println("Destination: " + vol1.getDestination());
+        System.out.println("Date et Heure de départ: " + vol1.getDateHeureDepart());
+        System.out.println("Date et Heure d'arrivée: " + vol1.getDateHeureArrivee());
+        System.out.println("État: " + vol1.getEtat());
         System.out.println();
 
         // Afficher la liste des passagers
@@ -60,7 +60,7 @@ public class Main {
         System.out.println("\nRéservations avant confirmation :");
         for (Integer id : Passager.listeReservations.keySet()) {
             Reservation res = Passager.listeReservations.get(id);
-            System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().obtenirOrigine() + " -> " + res.getVol().obtenirDestination());
+            System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().getOrigine() + " -> " + res.getVol().getDestination());
         }
 
         // Test de confirmation de réservation
@@ -72,7 +72,7 @@ public class Main {
         System.out.println("\nRéservations après confirmation :");
         for (Integer id : Passager.listeReservations.keySet()) {
             Reservation res = Passager.listeReservations.get(id);
-            System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().obtenirOrigine() + " -> " + res.getVol().obtenirDestination());
+            System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().getOrigine() + " -> " + res.getVol().getDestination());
         }
 
         // Test d'annulation de réservation
@@ -83,18 +83,18 @@ public class Main {
         System.out.println("\nRéservations après annulation :");
         for (Integer id : Passager.listeReservations.keySet()) {
             Reservation res = Passager.listeReservations.get(id);
-            System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().obtenirOrigine() + " -> " + res.getVol().obtenirDestination());
+            System.out.println("Réservation N°" + res.numeroReservation + " - Statut : " + res.getStatut() + " - Vol : " + res.getVol().getOrigine() + " -> " + res.getVol().getDestination());
         }
 
         // Test modification d'une réservation
         System.out.println("\nAvant modification :");
         Reservation res1 = Passager.listeReservations.get(1);
-        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().obtenirOrigine() + " -> " + res1.getVol().obtenirDestination());
+        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
 
         res1.modifierReservation(1, "Confirmée", passager1, vol2);
 
         System.out.println("\nInversement de l'origine et de la destination :");
         res1 = Passager.listeReservations.get(1);
-        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().obtenirOrigine() + " -> " + res1.getVol().obtenirDestination());
+        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
     }
     }
