@@ -2,9 +2,9 @@ package g8.louisjulien;
 
 public class Main {
     public static void main(String[] args) {
-        Vol vol1 = new Vol("Paris", "Tokyo", "12h", "00h");
-        Vol vol2 = new Vol("Paris", "Tokyo", "12h", "00h");
-        Vol vol3 = new Vol("Paris", "Tokyo", "12h", "00h");
+        Vol vol1 = new Vol("Paris", "Tokyo", "10h", "22h");
+        Vol vol2 = new Vol("Tokyo", "Paris", "00h", "12h");
+        Vol vol3 = new Vol("Paris", "Berlin", "16h", "20h");
 
         // Classe vol
 //        vol1.planifierVol("Paris", "Tokyo", "03/12/24 23:00", "04/12/24 11:00");
@@ -38,7 +38,7 @@ public class Main {
         System.out.println("État: " + vol3.getEtat());
             System.out.println();
 
-        vol1.modifierVol("Paris", "Berlin", "2024-12-01 14:00", "2024-12-01 16:00", "Modifié");
+        vol1.modifierVol("Londres", "Rome", "2024-12-01 02:00", "2024-12-01 16:00", "Modifié");
 
         // Voir si vol2 a été modifié
         System.out.println("Voir si le vol a été modifié");
@@ -93,10 +93,7 @@ public class Main {
         }
 
         // Test modification d'une réservation
-        System.out.println("Avant modification :");
         Reservation res1 = Passager.listeReservations.get(1);
-        System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
-
         res1.modifierReservation(1, "Confirmée", passager1, vol2);
 
         System.out.println("\nInversement de l'origine et de la destination :");
