@@ -1,17 +1,18 @@
 package g8.louisjulien;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Vol vol1 = new Vol("Paris", "Tokyo", "10h", "22h");
-        Vol vol2 = new Vol("Tokyo", "Paris", "00h", "12h");
-        Vol vol3 = new Vol("Paris", "Berlin", "16h", "20h");
+        Vol vol1 = new Vol("Paris", "Tokyo", "01/01/2024 10h", "22h");
+        Vol vol2 = new Vol("Tokyo", "Paris", "01/01/2024 00h", "12h");
+        Vol vol3 = new Vol("Paris", "Berlin", "28/01/2024 16h", "20h");
 
         // Classe vol
 //        vol1.planifierVol("Paris", "Tokyo", "03/12/24 23:00", "04/12/24 11:00");
 //        vol2.planifierVol("Tokyo", "Paris", "10/12/24 10:00", "10/12/24 22:00");
 //        vol3.planifierVol("Tokyo", "Paris", "10/12/24 10:00", "10/12/24 22:00");
 
-        // Afficher les vols planifiés
+        // Afficher les vols
             System.out.println("===== Classe vol =====");
             System.out.println("Affichage des vols planifiés");
         System.out.println("Taille de la liste des vols planifiés : " + Vol.listeVolsPlanifies.size());
@@ -25,6 +26,17 @@ public class Main {
                 System.out.println("État: " + vol.getEtat());
                 System.out.println();
             }
+
+        System.out.println("=========== Vols pour le 01/01/2024 ===============");
+        // Appel de la méthode planifierVol pour une date donnée
+        List<Vol> volsPourLaDate = Vol.planifierVol("01/01/2024");
+        // Impression des résultats
+        System.out.println("Vols pour le 01/01/2024 :");
+        for (Vol vol : volsPourLaDate) {
+            System.out.println("Vol N°" + vol.getNumeroVol() + " - Origine : " + vol.getOrigine() + " -> Destination : " + vol.getDestination());
+        }
+        System.out.println("=========== Vols pour le 01/01/2024 ===============");
+        System.out.println();
 
         Vol.annulerVol(1);
 

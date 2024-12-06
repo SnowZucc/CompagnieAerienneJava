@@ -32,8 +32,14 @@ public class Vol {
     // i.e regarder la date et l'heure des vols et les ajouter à une liste !!!
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
 
-    public void planifierVol(int numeroVol) {
-        this.Etat = "Planifié";// Ajoute un objet Vol dans la liste avec tous les attributs qu'on a attribués à l'instance de la classe actuelle (vol1 etc)
+    public static List<Vol> planifierVol(String dateHeureDepart) {
+        List<Vol> volsDuJour = new ArrayList<>();
+        for (Vol vol : Vol.listeVolsPlanifies) {
+            if (vol.dateHeureDepart.startsWith(dateHeureDepart)) {
+                volsDuJour.add(vol);
+            }
+        }
+        return volsDuJour;
     }
 
     public static void annulerVol(int numeroVol) {      // BUG : annuler vol 1 annule vol 1 et 2.
