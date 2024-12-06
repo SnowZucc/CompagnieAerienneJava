@@ -3,13 +3,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.time.LocalDateTime;
 
 public class Vol {
     private final int numeroVol;
     private String[] Origine = new String[2];
     private String[] Destination = new String[2];
-    private String dateHeureDepart;
-    private String dateHeureArrivee;
+    private LocalDateTime dateHeureDepart;
+    private LocalDateTime dateHeureArrivee;
     private String Etat; // 3 états: Planifié, Annulé, Modifié
     private ArrayList<String> pilotes = new ArrayList<>();
     private ArrayList<String> personnelCab = new ArrayList<>();
@@ -21,7 +22,7 @@ public class Vol {
     public static double prixBillet = 250;
     public static double Revenus;
 
-    public Vol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
+    public Vol(String Origine, String Destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee) {
         this.numeroVol = indexVol;
         indexVol+=1;
         this.Origine[0] = Origine;
@@ -61,7 +62,7 @@ public class Vol {
         }
     }
 
-    public void modifierVol(String origine, String destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
+    public void modifierVol(String origine, String destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat) {
         this.Origine[0] = origine;
         this.Destination[0] = destination;
         this.dateHeureDepart = dateHeureDepart;
@@ -78,6 +79,17 @@ public class Vol {
             System.out.println("Passager : " + p.getNom());
             System.out.println();
         }
+    }
+
+
+    public boolean chevauche(Vol autreVol) {
+        // Conflit temporel : les deux plages se chevauchent
+        boolean chevauchementTemporel = !(this.dateHeureArrivee.isBefore(autreVol.dateHeureDepart) ||
+                this.dateHeureDepart.isAfter(autreVol.dateHeureArrivee));
+        // Conflit de position : l'avion doit être à l'aéroport d'origine à temps
+        boolean correspondanceAeroports = this.Destination[1].equals(autreVol.Origine[1]);
+
+        return chevauchementTemporel && correspondanceAeroports;
     }
 //    -----------------------------------------  GETTERS  ---------------------------------------------------------
 
@@ -101,11 +113,11 @@ public class Vol {
         return String.join(", ", this.Destination);
     }
 
-    public String getDateHeureDepart() {
+    public LocalDateTime getDateHeureDepart() {
         return this.dateHeureDepart;
     }
 
-    public String getDateHeureArrivee() {
+    public LocalDateTime getDateHeureArrivee() {
         return this.dateHeureArrivee;
     }
 
