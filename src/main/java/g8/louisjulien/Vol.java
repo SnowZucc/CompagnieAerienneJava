@@ -2,6 +2,7 @@ package g8.louisjulien;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Vol {
     private final int numeroVol;
@@ -10,15 +11,15 @@ public class Vol {
     private String dateHeureDepart;
     private String dateHeureArrivee;
     private String Etat; // 3 états: Planifié, Annulé, Modifié
-    public static int indexVol;    // Pour définir le numéro des prochains vols (static car partagé entre instances)
-
-    public Avion avion;
-    HashMap<String, ArrayList<String>> equipage =  new HashMap<>();
     private ArrayList<String> pilotes = new ArrayList<>();
     private ArrayList<String> personnelCab = new ArrayList<>();
 
-
+    public static int indexVol;    // Pour définir le numéro des prochains vols (static car partagé entre instances)
+    public Avion avion;
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
+    HashMap<String, ArrayList<String>> equipage =  new HashMap<>();
+    public static double prixBillet = 250;
+    public static double Revenus;
 
     public Vol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
         this.numeroVol = indexVol;
@@ -36,6 +37,7 @@ public class Vol {
     // !!! METHODE A REFAIRE: il faut planifier tous les vols d'une journée,
     // i.e regarder la date et l'heure des vols et les ajouter à une liste !!!
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
+    // C'EST BON J'AI FINI
 
     public static List<Vol> planifierVol(String dateHeureDepart) {
         System.out.println("=========== Vols pour le " + dateHeureDepart + " ===============");
@@ -119,6 +121,32 @@ public class Vol {
 
     }
 
+    public static double getRevenus() {
+        return Revenus;
+    }
+
+    public static void plusPopulaires() {
+        Map<String, Integer> destinationCount = new HashMap<>();
+
+        // Parcours de tous les vols planifiés
+        for (Vol vol : Vol.listeVolsPlanifies) {
+            // Récupérer la destination principale du vol
+            String destination = vol.getDestination()[0];
+            // Compter le nombre de passagers sur ce vol
+            int nbPassagers = vol.listePassagers.size();
+
+            // Incrémenter le compteur de la destination
+            destinationCount.put(destination, destinationCount.getOrDefault(destination, 0) + nbPassagers);
+        }
+
+        // Afficher les résultats sans tri
+        System.out.println("=== Destinations populaires ===");
+        for (Map.Entry<String, Integer> entry : destinationCount.entrySet()) {
+            System.out.println("Destination: " + entry.getKey() + " - Nombre de passagers: " + entry.getValue());
+        }
+        System.out.println();
+    }
+
     @Override
     public String toString() {
         return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :"
@@ -132,5 +160,4 @@ public class Vol {
                 + "\nEtat:" + this.Etat;
 
     }
-
 }

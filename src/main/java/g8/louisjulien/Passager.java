@@ -31,6 +31,7 @@ public class Passager extends Personne {
         nbReservations++;
         listeReservations.put(nbReservations, new Reservation(nbReservations, this, vol));
         vol.listePassagers.add(this);
+        Vol.Revenus+=Vol.prixBillet;
     }
 
     public void annulerReservation(int id) {

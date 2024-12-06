@@ -1,5 +1,7 @@
 package g8.louisjulien;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -97,5 +99,9 @@ public class Main {
         System.out.println("\nInversement de l'origine et de la destination :");
         res1 = Passager.listeReservations.get(1);
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOriginePasTableau() + " -> " + res1.getVol().getDestinationPasTableau());
+
+        System.out.println(Vol.getRevenus());
+        System.out.println();
+        Vol.plusPopulaires();
     }
 }
