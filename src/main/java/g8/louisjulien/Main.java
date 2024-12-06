@@ -122,10 +122,16 @@ public class Main {
         Pilote jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
         String roleJeff = jeff.obtenirRole();
         System.out.println(roleJeff);
-
         jeff.affecterVol(vol1);
         System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
         jeff.obtenirVol(vol1.getNumeroVol());
+        System.out.println();
 
+        PersonnelCabine jose = new PersonnelCabine(420, "José", "6e cercle de l'Enfer",  466827959, 1000, "01/01/1945", "pas qualifié");
+        System.out.println(jose.obtenirRole());
+        jose.affecterVol(vol1);
+        System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
+        jose.obtenirVol(vol1.getNumeroVol());
+        System.out.println();
     }
 }

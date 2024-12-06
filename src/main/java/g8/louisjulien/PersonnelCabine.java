@@ -2,8 +2,8 @@ package g8.louisjulien;
 
 public class PersonnelCabine extends Employe{
 
-    int qualification;
-    public PersonnelCabine(int Identifiant, String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, int qualification) {
+    String qualification;
+    public PersonnelCabine(int Identifiant, String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, String qualification) {
         super(Identifiant, Nom, Adresse, Contact, numeroEmploye, dateEmbauche);
         this.qualification = qualification;
     }
@@ -14,7 +14,7 @@ public class PersonnelCabine extends Employe{
     public void obtenirVol(int numeroVol) {
         for (Vol vol : Vol.listeVolsPlanifies) {
             if (vol.getNumeroVol() == numeroVol) {
-                vol.toString();
+                System.out.println(vol.toString());
                 break;
             }
         }
