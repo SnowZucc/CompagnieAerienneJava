@@ -1,4 +1,5 @@
 package g8.louisjulien;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -6,9 +7,13 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         // Création de 3 vols
-        Vol vol1 = new Vol("Paris", "Tokyo", "01/01/2024 10h", "22h");
-        Vol vol2 = new Vol("Tokyo", "Paris", "01/01/2024 00h", "12h");
-        Vol vol3 = new Vol("Paris", "Berlin", "28/01/2024 16h", "20h");
+        Vol vol1 = new Vol("Paris", "Tokyo",
+                LocalDateTime.of(2024, 1, 1, 10, 0),
+                LocalDateTime.of(2024, 1, 1, 22, 0));
+        Vol vol2 = new Vol("Tokyo", "Paris", LocalDateTime.of(2024, 1, 1, 0, 0),
+                LocalDateTime.of(2024, 1, 1, 12, 0));
+        Vol vol3 = new Vol("Paris", "Berlin", LocalDateTime.of(2024, 1, 28, 16, 0),
+                LocalDateTime.of(2024, 1, 28, 20, 0));
 
         // Affectation des personnes et du personnel
         System.out.println("==== Classe personne =====");
@@ -50,13 +55,15 @@ public class Main {
         System.out.println("État vol 1 : " + vol2.getEtat());
         System.out.println();
 
-        vol2.modifierVol("Tunis", "Rome", "2024-12-01 02:00", "2024-12-01 16:00", "Modifié");
+        vol2.modifierVol("Tunis", "Rome",
+                LocalDateTime.of(2024, 12, 1, 2, 0),
+                LocalDateTime.of(2024, 12, 1, 16, 0), "Modifié");
         // Voir si vol2 a été modifié
         System.out.println(vol2);
         System.out.println();
 
         System.out.println("Test planifierVol pour avoir un agenda des vols pour un jour donné");
-        List<Vol> volsPourLaDate = Vol.planifierVol("01/01/2024");// Création liste des vols pour un jour avec planifierVol
+        List<Vol> volsPourLaDate = Vol.planifierVol("2024-01-01");// Création liste des vols pour un jour avec planifierVol
 
         for (Vol vol : volsPourLaDate) {
             System.out.println("Vol N°" + vol.getNumeroVol() + " - Origine : " + vol.getOriginePasTableau() + " -> Destination : " + vol.getDestinationPasTableau());

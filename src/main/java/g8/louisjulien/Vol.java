@@ -44,7 +44,8 @@ public class Vol {
         System.out.println("=========== Vols pour le " + dateHeureDepart + " ===============");
         List<Vol> volsDuJour = new ArrayList<>();
         for (Vol vol : Vol.listeVolsPlanifies) {
-            if (vol.dateHeureDepart.startsWith(dateHeureDepart)) {
+
+            if (vol.dateHeureDepart.toString().startsWith(dateHeureDepart)) {
                 volsDuJour.add(vol);
             }
         }
