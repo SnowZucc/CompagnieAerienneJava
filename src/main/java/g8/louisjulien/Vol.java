@@ -13,7 +13,10 @@ public class Vol {
     public static int indexVol;    // Pour définir le numéro des prochains vols (static car partagé entre instances)
 
     private Avion avion;
-    private HashMap<String, ArrayList<String>> equipage;
+    HashMap<String, ArrayList<String>> equipage =  new HashMap<>();
+    private ArrayList<String> pilotes;
+    private ArrayList<String> personnelCab;
+
 
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
 

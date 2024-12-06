@@ -20,6 +20,7 @@ public class Avion {
 //    public void affecterVol(Vol vol) {
 //        if (verifierDisponibilite(vol)) {
 //            avionsDispo.remove(this.Immatriculation);
+//            vol.getAvion() = this;
 //
 //        }
 //    }

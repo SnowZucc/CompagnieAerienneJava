@@ -9,10 +9,10 @@ public class Pilote extends Employe{
         this.Licence = Licence;
         this.heuresDeVol = heuresDeVol;
     }
-    public void affecterVol() {
-
+    public void affecterVol(Vol vol) {
+        vol.getEquipage().add(this);
     }
-    public void obtenirVol() {
-
+    public void obtenirVol(int numeroVol) {
+        Vol.listeVolsPlanifies..toString()
     }
 }
