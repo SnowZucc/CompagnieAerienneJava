@@ -4,31 +4,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Avion {
-    private int Immatriculation;
-    private String Modele;
-    private int Capacite;
-    private ArrayList<Vol> volsAffectes = new ArrayList();
+    private final int Immatriculation;
+    private final String Modele;
+    private final int Capacite;
+    private ArrayList<Vol> volsAffectes;
 
 
-    public Avion(int Immatriculation, String Modele, int Capacite, HashMap<String, String> Situation, String posInit) {
+    public Avion(int Immatriculation, String Modele, int Capacite) {
         this.Immatriculation = Immatriculation;
         this.Modele = Modele;
         this.Capacite = Capacite;
+        this.volsAffectes = new ArrayList<>();
     }
 
     public void affecterVol(Vol vol) {
         if (verifierDisponibilite(vol)) {
             volsAffectes.add(vol);
             vol.avion = this;
+            return;
         }
+        System.out.println("AFFECTATION IMPOSSIBLE");
     }
 
     public boolean verifierDisponibilite(Vol vol) {
         for (Vol v : volsAffectes) {
-            if (vol.chevauche(vol)) {
+            if (v.chevauche(vol)) {
+                System.out.println("Avion indisponible pour ce vol.");
                 return false; // Conflit trouvé
             }
         }
+        System.out.println("Avion disponible pour ce vol!");
         return true; // Pas de conflit
     }
 

@@ -16,12 +16,12 @@ public class Main {
                 LocalDateTime.of(2024, 1, 28, 20, 0));
 
         // Affectation des personnes et du personnel
-        System.out.println("==== Classe personne =====");
+        System.out.println("==== Classe Personne =====");
         Personne frederic = new Personne( "Frédéric", "12 rue de Vanves, Issy", 0);
         frederic.obtenirInfos();
         System.out.println();
 
-        System.out.println("==== Classe employé =====");
+        System.out.println("==== Classe Employe =====");
         System.out.println("Pilote");
         Pilote jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
         String roleJeff = jeff.obtenirRole();
@@ -46,9 +46,30 @@ public class Main {
         jose.affecterVol(vol2);
         jose.affecterVol(vol3);
 
-        // Affectation aéroport [à faire]
+        System.out.println("===== Classe Aeroport =====");
+        Aeroport par1 = new Aeroport("Paris-Charles-de-Gaulle", "Paris");
+        Aeroport tok1 = new Aeroport("Tokyo-Haneda", "Tokyo");
+        Aeroport ber1 = new Aeroport("Willy-Brandt", "Berlin");
+        //        Affectation d'aéroports pour le vol1
+        par1.affecterOrigine(vol1);
+        tok1.affecterDestination(vol1);
+        //        Affectation d'aéroports pour le vol2
+        tok1.affecterOrigine(vol2);
+        par1.affecterDestination(vol2);
+        //        Affectation d'aéroports pour le vol1
+        par1.affecterOrigine(vol3);
+        ber1.affecterDestination(vol3);
 
-        System.out.println("===== Classe vol =====");
+
+        System.out.println("===== Classe Avion =====");
+        Avion a1 = new Avion(47105, "A380", 520);
+        Avion a2 = new Avion(50174, "A350", 292);
+        Avion a3 = new Avion(83411, "A300", 345);
+        a1.affecterVol(vol1);
+        a2.affecterVol(vol2);
+        a3.affecterVol(vol3);
+
+        System.out.println("===== Classe Vol =====");
         System.out.println("Affichage des vols planifiés");
         System.out.println("Il y a " + Vol.listeVolsPlanifies.size() + " vols planifiés.");
             for (int i = 0; i < Vol.listeVolsPlanifies.size(); i++) {
