@@ -87,20 +87,16 @@ public class Main {
         System.out.println("\nRéservations après confirmation de la réservation 1 (par Jean-Marc) :");
         passager1.obtenirReservations();
 
-        // Test d'annulation de réservation
         System.out.println("Jean-Marc change d'avis et annule sa réservation 2 (il aura pas le temps d'y aller)");
         passager1.annulerReservation(2);
         passager1.obtenirReservations();
 
-        // Test modification d'une réservation
+        System.out.println("Inversement de l'origine et de la destination :");
         Reservation res1 = Passager.listeReservations.get(1);
         res1.modifierReservation(1, "Confirmée", passager1, vol2);
-
-        System.out.println("\nInversement de l'origine et de la destination :");
-        res1 = Passager.listeReservations.get(1);
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOriginePasTableau() + " -> " + res1.getVol().getDestinationPasTableau());
 
-        System.out.println(Vol.getRevenus());
+        System.out.println("Revenus = " + Vol.getRevenus());
         System.out.println();
         Vol.plusPopulaires();
     }

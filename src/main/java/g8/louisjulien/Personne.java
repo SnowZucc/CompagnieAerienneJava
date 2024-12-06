@@ -1,10 +1,10 @@
 package g8.louisjulien;
 
 public class Personne {
+    private String Adresse;
 
     public int Identifiant;
     public String Nom;
-    private String Adresse;
     public int Contact;
     public static int indexPersonne;
 

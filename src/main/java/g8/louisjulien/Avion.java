@@ -11,6 +11,8 @@ public class Avion {
     private ArrayList<Vol> volsAffectes = new ArrayList();
     private final String posInit;
 
+    public HashMap<Integer, Avion> avionsDispo = new HashMap<>();
+
     public Avion(int Immatriculation, String Modele, int Capacite, HashMap<String, String> Situation, String posInit) {
         this.Immatriculation = Immatriculation;
         this.Modele = Modele;
@@ -19,10 +21,6 @@ public class Avion {
         this.posInit = posInit;
     }
 
-
-
-
-    public HashMap<Integer, Avion> avionsDispo = new HashMap<>();
     public void affecterVol(Vol vol) {
         if (verifierDisponibilite(vol)) {
             Situation.put(vol.getDateHeureDepart(), vol.getOrigine()[1]);
@@ -38,7 +36,6 @@ public class Avion {
         }
         return false;
     }
-
 
 //    -----------------------------------------  GETTERS  ---------------------------------------------------------
     public int getImmatriculation() {

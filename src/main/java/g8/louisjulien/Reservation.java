@@ -42,7 +42,7 @@ public class Reservation {
     }
 
 
-    public void annulerReservation(int numeroReservation) {
+    public static void annulerReservation(int numeroReservation) {
         Passager.listeReservations.get(numeroReservation).statut = "Annulée";
         Passager.listeReservations.remove(numeroReservation);
     }
