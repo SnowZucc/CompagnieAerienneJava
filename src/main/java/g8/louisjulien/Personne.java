@@ -33,11 +33,8 @@ public class Personne {
 
     public void obtenirInfos() {
         System.out.println("Informations de " + getNom() + " :");
-
-        System.out.println("Identifiant :" + getIdentifiant());
-        System.out.println("Nom :" + getNom());
-        System.out.println("Adresse :" + getAdresse());
-        System.out.println("Contact :" + getContact());
-
+        System.out.println("Identifiant : " + getIdentifiant());
+        System.out.println("Adresse : " + getAdresse());
+        System.out.println("Contact :"  + getContact());
     }
 }

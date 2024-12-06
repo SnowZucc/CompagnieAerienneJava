@@ -114,6 +114,10 @@ public class Main {
         res1 = Passager.listeReservations.get(1);
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
 
+        System.out.println("==== Classe personne =====");
+        Personne frederic = new Personne(666, "Frédéric", "12 rue de Vanves, Issy", 0);
+        frederic.obtenirInfos();
+
         System.out.println("==== Classe employé =====");
         Employe jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
         String roleJeff = jeff.obtenirRole();
