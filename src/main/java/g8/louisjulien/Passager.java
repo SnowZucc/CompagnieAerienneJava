@@ -18,6 +18,7 @@ public class Passager extends Personne {
     public Object getPasseport() {
         return Passeport;
     }
+
     public void setPasseport(Object Passeport) {
         this.Passeport = Passeport;
     }
@@ -31,14 +32,21 @@ public class Passager extends Personne {
         listeReservations.put(nbReservations, new Reservation(nbReservations, this, vol));
         vol.listePassagers.add(this);
     }
+
     public void annulerReservation(int id) {
         listeReservations.get(id).getVol().listePassagers.remove(this);
         listeReservations.remove(id);
         nbReservations--;
 
     }
-    public String obtenirReservations(int id) {
-        return listeReservations.get(id).toString();
-    }
 
+    public void obtenirReservations() {
+        System.out.println("Réservations du passager " + this.getNom() + " :");
+        for (int id : listeReservations.keySet()) {
+            Reservation res = listeReservations.get(id);
+            System.out.println("Réservation N°" + res.numeroReservation + " - Vol : " +
+                    res.getVol().getOrigine() + " -> " + res.getVol().getDestination() +
+                    " - Statut : " + res.getStatut());
+        }
+    }
 }
