@@ -12,6 +12,6 @@ public class Employe extends Personne {
     }
 
     public String obtenirRole() {
-        return "Rôle de l'employé " + this.NumeroEmploye + this.getClass().getName();
+        return "Rôle de l'employé :" + this.getClass().getSimpleName() + " | Identifiant : " +  this.NumeroEmploye;
     }
 }

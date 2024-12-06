@@ -8,10 +8,10 @@ public class PersonnelCabine extends Employe{
         this.qualification = qualification;
     }
 
-    public void affecterVol(Vol vol) {
-        vol.getEquipage().put();
-    }
-    public void obtenirVol() {
-
-    }
+//    public void affecterVol(Vol vol) {
+//        vol.getEquipage().put();
+//    }
+//    public void obtenirVol() {
+//
+//    }
 }

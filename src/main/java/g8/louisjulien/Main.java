@@ -113,5 +113,10 @@ public class Main {
         System.out.println("\nInversement de l'origine et de la destination :");
         res1 = Passager.listeReservations.get(1);
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
+
+        System.out.println("==== Classe employé =====");
+        Employe jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
+        String roleJeff = jeff.obtenirRole();
+        System.out.println(roleJeff);
     }
-    }
+}
