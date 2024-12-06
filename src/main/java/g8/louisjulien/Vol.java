@@ -12,7 +12,7 @@ public class Vol {
     private String Etat; // 3 états: Planifié, Annulé, Modifié
     public static int indexVol;    // Pour définir le numéro des prochains vols (static car partagé entre instances)
 
-    private Avion avion;
+    public Avion avion;
     HashMap<String, ArrayList<String>> equipage =  new HashMap<>();
     private ArrayList<String> pilotes = new ArrayList<>();
     private ArrayList<String> personnelCab = new ArrayList<>();
@@ -108,19 +108,22 @@ public class Vol {
     }
     public Avion getAvion() {
         return this.avion;
+
     }
 
 
     @Override
     public String toString() {
-        return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :\n"
-                + "Origine:" + String.join(", ", this.Origine)
+        return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :"
+                + "\nOrigine:" + String.join(", ", this.Origine)
                 + "\nDestination:" + String.join(", ", this.Destination)
                 + "\nDateHeureDepart:" + this.dateHeureDepart
                 + "\nDateHeureArrivee:" + this.dateHeureArrivee
-                + "\nEtat:" + this.Etat
+                + "\nAvion:" + this.avion
                 + "\nPersonnel Cabine:" + this.personnelCab
-                + "\nPilotes:" + this.pilotes;
+                + "\nPilotes:" + this.pilotes
+                + "\nEtat:" + this.Etat;
+
     }
 
 }
