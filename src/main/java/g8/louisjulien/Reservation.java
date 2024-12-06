@@ -10,13 +10,13 @@ public class Reservation {
     private String statut;
     private Passager passager;
     private Vol vol;
-
-    //public List<Reservation> volsReserves = new ArrayList<Reservation>();
+    //private int indexReservation;
 
     public Reservation(int numeroReservation, Passager passager, Vol vol) {
         this.numeroReservation = numeroReservation;
-        this.dateReservation = LocalDateTime.now();
-        this.statut = "Non confirmée";
+        //indexReservation+=1;
+        this.dateReservation = LocalDateTime.now();     // Heure et date de maintenant
+        this.statut = "Non confirmée";                  // Par défaut : non confirmée
         this.passager = passager;
         this.vol = vol;
     }

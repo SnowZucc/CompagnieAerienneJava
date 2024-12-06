@@ -6,9 +6,11 @@ public class Personne {
     public String Nom;
     private String Adresse;
     public int Contact;
+    public static int indexPersonne;
 
-    public Personne(int Identifiant, String Nom, String Adresse, int Contact) {
-        this.Identifiant = Identifiant;
+    public Personne(String Nom, String Adresse, int Contact) {
+        this.Identifiant = indexPersonne;
+        indexPersonne+=1;
         this.Nom = Nom;
         this.Adresse = Adresse;
         this.Contact = Contact;

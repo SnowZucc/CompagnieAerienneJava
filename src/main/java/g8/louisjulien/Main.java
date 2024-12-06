@@ -37,7 +37,7 @@ public class Main {
         System.out.println();
 
         System.out.println("===== Classe Passager =====");
-        Passager passager1 = new Passager(1, "Jean-Marc", "123 Rue du nhfruogerhngerhilfh", 123456789, 0, "2024-12-01", "ABCDEF");
+        Passager passager1 = new Passager("Jean-Marc", "123 Rue du nhfruogerhngerhilfh", 123456789, 0, "2024-12-01", "ABCDEF");
 
         // Test de réservation
         System.out.println("Jean-Marc ajoute maintenant 2 réservations");
@@ -74,7 +74,7 @@ public class Main {
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOrigine() + " -> " + res1.getVol().getDestination());
 
         System.out.println("==== Classe personne =====");
-        Personne frederic = new Personne(666, "Frédéric", "12 rue de Vanves, Issy", 0);
+        Personne frederic = new Personne( "Frédéric", "12 rue de Vanves, Issy", 0);
         frederic.obtenirInfos();
 
         System.out.println("==== Classe employé =====");

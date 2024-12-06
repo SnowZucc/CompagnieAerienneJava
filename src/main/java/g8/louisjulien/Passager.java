@@ -9,8 +9,8 @@ public class Passager extends Personne {
 
     static HashMap<Integer, Reservation> listeReservations = new HashMap<>();       // Static
 
-    public Passager(int Identifiant, String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, Object Passeport) {
-        super(Identifiant, Nom, Adresse, Contact);
+    public Passager(String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, Object Passeport) {
+        super(Nom, Adresse, Contact);
         this.Passeport = Passeport;
         this.nbReservations = 0;
     }
