@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Vol {
     private final int numeroVol;
-    private String Origine;
-    private String Destination;
+    private String[] Origine = new String[2];
+    private String[] Destination = new String[2];
     private String dateHeureDepart;
     private String dateHeureArrivee;
     private String Etat; // 3 états: Planifié, Annulé, Modifié
@@ -23,8 +23,8 @@ public class Vol {
     public Vol(String Origine, String Destination, String dateHeureDepart, String dateHeureArrivee) {
         this.numeroVol = indexVol;
         indexVol+=1;
-        this.Origine = Origine;
-        this.Destination = Destination;
+        this.Origine[0] = Origine;
+        this.Destination[0] = Destination;
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
         this.Etat = "Planifié";
@@ -59,8 +59,8 @@ public class Vol {
     }
 
     public void modifierVol(String origine, String destination, String dateHeureDepart, String dateHeureArrivee, String etat) {
-        this.Origine = origine;
-        this.Destination = destination;
+        this.Origine[0] = origine;
+        this.Destination[0] = destination;
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
         this.Etat = etat;
@@ -80,11 +80,11 @@ public class Vol {
         return this.numeroVol;
     }
 
-    public String getOrigine() {
+    public String[] getOrigine() {
         return this.Origine;
     }
 
-    public String getDestination() {
+    public String[] getDestination() {
         return this.Destination;
     }
 
