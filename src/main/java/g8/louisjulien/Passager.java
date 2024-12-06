@@ -37,7 +37,7 @@ public class Passager extends Personne {
         listeReservations.get(id).getVol().listePassagers.remove(this);
         listeReservations.remove(id);
         nbReservations--;
-
+        System.out.println("La réservation " + id + " a été annulée");
     }
 
     public void obtenirReservations() {
@@ -48,5 +48,6 @@ public class Passager extends Personne {
                     res.getVol().getOrigine() + " -> " + res.getVol().getDestination() +
                     " - Statut : " + res.getStatut());
         }
+        System.out.println();
     }
 }

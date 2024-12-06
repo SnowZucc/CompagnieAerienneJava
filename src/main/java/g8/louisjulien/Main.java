@@ -3,71 +3,46 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // Création de 3 vols
         Vol vol1 = new Vol("Paris", "Tokyo", "01/01/2024 10h", "22h");
         Vol vol2 = new Vol("Tokyo", "Paris", "01/01/2024 00h", "12h");
         Vol vol3 = new Vol("Paris", "Berlin", "28/01/2024 16h", "20h");
 
-        // Classe vol
-        // Afficher les vols
-            System.out.println("===== Classe vol =====");
-            System.out.println("Affichage des vols planifiés");
-        System.out.println("Taille de la liste des vols planifiés : " + Vol.listeVolsPlanifies.size());
+        System.out.println("===== Classe vol =====");
+        System.out.println("Affichage des vols planifiés");
+        System.out.println("Il y a " + Vol.listeVolsPlanifies.size() + " vols planifiés.");
             for (int i = 0; i < Vol.listeVolsPlanifies.size(); i++) {
                 Vol vol = Vol.listeVolsPlanifies.get(i);                        // Récupère le vol à l'index i
-                System.out.println("Numéro du vol: " + vol.getNumeroVol());
-                System.out.println("Origine: " + vol.getOrigine());
-                System.out.println("Destination: " + vol.getDestination());
-                System.out.println("Date et Heure de départ: " + vol.getDateHeureDepart());
-                System.out.println("Date et Heure d'arrivée: " + vol.getDateHeureArrivee());
-                System.out.println("État: " + vol.getEtat());
+                System.out.println(vol);
                 System.out.println();
             }
 
         Vol.annulerVol(1);
 
-            // Voir si vol2 a été annulé
-        System.out.println("Voir si le vol a été annulé");
-        System.out.println("Numéro du vol: " + vol1.getNumeroVol());
-        System.out.println("État: " + vol2.getEtat());
-            System.out.println("Numéro du vol: " + vol2.getNumeroVol());
-            System.out.println("État: " + vol2.getEtat());
-        System.out.println("Numéro du vol: " + vol3.getNumeroVol());
-        System.out.println("État: " + vol3.getEtat());
-            System.out.println();
-
-        vol1.modifierVol("Londres", "Rome", "2024-12-01 02:00", "2024-12-01 16:00", "Modifié");
-
-        // Voir si vol2 a été modifié
-        System.out.println("Voir si le vol a été modifié");
-        System.out.println("Numéro du vol: " + vol1.getNumeroVol());
-        System.out.println("Origine: " + vol1.getOrigine());
-        System.out.println("Destination: " + vol1.getDestination());
-        System.out.println("Date et Heure de départ: " + vol1.getDateHeureDepart());
-        System.out.println("Date et Heure d'arrivée: " + vol1.getDateHeureArrivee());
-        System.out.println("État: " + vol1.getEtat());
+        System.out.println("Voir si vol 1 (vol2) a été annulé");
+        System.out.println("État vol 1 : " + vol2.getEtat());
         System.out.println();
 
-        System.out.println("=========== Vols pour le 01/01/2024 ===============");
-        // Appel de la méthode planifierVol pour une date donnée
-        List<Vol> volsPourLaDate = Vol.planifierVol("01/01/2024");
-        // Impression des résultats
-        System.out.println("Vols pour le 01/01/2024 :");
+        vol2.modifierVol("Tunis", "Rome", "2024-12-01 02:00", "2024-12-01 16:00", "Modifié");
+        // Voir si vol2 a été modifié
+        System.out.println(vol2);
+        System.out.println();
+
+        System.out.println("Test planifierVol pour avoir un agenda des vols pour un jour donné");
+        List<Vol> volsPourLaDate = Vol.planifierVol("01/01/2024");// Création liste des vols pour un jour avec planifierVol
+
         for (Vol vol : volsPourLaDate) {
             System.out.println("Vol N°" + vol.getNumeroVol() + " - Origine : " + vol.getOrigine() + " -> Destination : " + vol.getDestination());
         }
-        System.out.println("=========== Vols pour le 01/01/2024 ===============");
         System.out.println();
 
+        System.out.println("===== Classe Passager =====");
         Passager passager1 = new Passager(1, "Jean-Marc", "123 Rue du nhfruogerhngerhilfh", 123456789, 0, "2024-12-01", "ABCDEF");
 
         // Test de réservation
-        System.out.println("===== Classe Passager =====");
-        System.out.println("Ajout de réservations pour le passager...");
+        System.out.println("Jean-Marc ajoute maintenant 2 réservations");
         passager1.reserverVol(vol1);
         passager1.reserverVol(vol2);
-
-        // Affichage des réservations avant confirmation
-        System.out.println("\nRéservations avant confirmation :");
         passager1.obtenirReservations();
 
         // Afficher la liste des passagers
@@ -77,22 +52,18 @@ public class Main {
         vol3.listingPassager();
 
         // Test de confirmation de réservation
-        System.out.println("\nConfirmation de la réservation N°1...");
+        System.out.println("Test confirmation de la réservation N°1");
         Reservation reservation1 = Passager.listeReservations.get(1);
         reservation1.confirmerReservation(1);
 
         // Affichage des réservations après confirmation
-        System.out.println("\nRéservations après confirmation (par Jean-Marc) :");
+        System.out.println("\nRéservations après confirmation de la réservation 1 (par Jean-Marc) :");
         passager1.obtenirReservations();
 
         // Test d'annulation de réservation
-        System.out.println("Jean-Marc annule la réservation N°2...");
+        System.out.println("Jean-Marc change d'avis et annule sa réservation 2 (il aura pas le temps d'y aller)");
         passager1.annulerReservation(2);
-
-        // Affichage des réservations après annulation
-        System.out.println("Réservations après annulation (par Jean-Marc) :");
         passager1.obtenirReservations();
-        System.out.println("On a un bug : annuler le vol 2 annule aussi le vol 1, mais pas le vol 3 et les autres");
 
         // Test modification d'une réservation
         Reservation res1 = Passager.listeReservations.get(1);
@@ -107,6 +78,7 @@ public class Main {
         frederic.obtenirInfos();
 
         System.out.println("==== Classe employé =====");
+        System.out.println("Pilote");
         Pilote jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
         String roleJeff = jeff.obtenirRole();
         System.out.println(roleJeff);
@@ -115,6 +87,7 @@ public class Main {
         jeff.obtenirVol(vol1.getNumeroVol());
         System.out.println();
 
+        System.out.println("Personnel cabine");
         PersonnelCabine jose = new PersonnelCabine(420, "José", "6e cercle de l'Enfer",  466827959, 1000, "01/01/1945", "pas qualifié");
         System.out.println(jose.obtenirRole());
         jose.affecterVol(vol1);

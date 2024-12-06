@@ -38,6 +38,7 @@ public class Vol {
     // Donner id - ajouter un vol dans la liste de vols réservés avec les attributs choisis, + génère un numéro de vol
 
     public static List<Vol> planifierVol(String dateHeureDepart) {
+        System.out.println("=========== Vols pour le " + dateHeureDepart + " ===============");
         List<Vol> volsDuJour = new ArrayList<>();
         for (Vol vol : Vol.listeVolsPlanifies) {
             if (vol.dateHeureDepart.startsWith(dateHeureDepart)) {
@@ -64,6 +65,8 @@ public class Vol {
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
         this.Etat = etat;
+
+        System.out.println("Le vol " + numeroVol + " a été modifié.");
     }
 
     public List<Passager> listePassagers = new ArrayList<>();
