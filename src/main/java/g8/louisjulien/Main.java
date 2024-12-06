@@ -119,8 +119,13 @@ public class Main {
         frederic.obtenirInfos();
 
         System.out.println("==== Classe employé =====");
-        Employe jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
+        Pilote jeff = new Pilote(100, "Jeff", "1 Rue.", 0, 105, "01/01/1945", 452, 8000);
         String roleJeff = jeff.obtenirRole();
         System.out.println(roleJeff);
+
+        jeff.affecterVol(vol1);
+        System.out.println("Equipage du vol n°" + vol1.getNumeroVol() + " : " + vol1.equipage);
+        jeff.obtenirVol(vol1.getNumeroVol());
+
     }
 }

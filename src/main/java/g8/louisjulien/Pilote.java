@@ -10,9 +10,15 @@ public class Pilote extends Employe {
         this.Licence = Licence;
         this.heuresDeVol = heuresDeVol;
     }
-//    public void affecterVol(Vol vol) {
-//        vol.getEquipage().add(this);
-//    }
-//    public void obtenirVol(int numeroVol) {
-//        Vol.listeVolsPlanifies..toString()
+    public void affecterVol(Vol vol) {
+        vol.getEquipage().get("Pilotes").add(this.Nom);
+    }
+    public void obtenirVol(int numeroVol) {
+        for (Vol vol : Vol.listeVolsPlanifies) {
+            if (vol.getNumeroVol() == numeroVol) {
+                System.out.println(vol);
+                break;
+            }
+        }
+    }
 }

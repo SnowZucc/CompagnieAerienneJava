@@ -14,8 +14,8 @@ public class Vol {
 
     private Avion avion;
     HashMap<String, ArrayList<String>> equipage =  new HashMap<>();
-    private ArrayList<String> pilotes;
-    private ArrayList<String> personnelCab;
+    private ArrayList<String> pilotes = new ArrayList<>();
+    private ArrayList<String> personnelCab = new ArrayList<>();
 
 
     public static ArrayList<Vol> listeVolsPlanifies = new ArrayList<>(); // Liste de vols planifiés
@@ -29,6 +29,8 @@ public class Vol {
         this.dateHeureArrivee = dateHeureArrivee;
         this.Etat = "Planifié";
         listeVolsPlanifies.add(this);
+        this.equipage.put("Pilotes", pilotes);
+        this.equipage.put("Personnel Cabine", personnelCab);
     }
 
     // !!! METHODE A REFAIRE: il faut planifier tous les vols d'une journée,
@@ -104,4 +106,18 @@ public class Vol {
     public Avion getAvion() {
         return this.avion;
     }
+
+
+    @Override
+    public String toString() {
+        return "INFORMATIONS SUR LE VOL N°" + this.numeroVol + " :\n"
+                + "Origine:" + this.Origine
+                + "\nDestination:" + this.Destination
+                + "\nDateHeureDepart:" + this.dateHeureDepart
+                + "\nDateHeureArrivee:" + this.dateHeureArrivee
+                + "\nEtat:" + this.Etat
+                + "\nPersonnel Cabine:" + this.personnelCab
+                + "\nPilotes:" + this.pilotes;
+    }
+
 }
