@@ -14,7 +14,7 @@ public class PersonnelCabine extends Employe{
     public void obtenirVol(int numeroVol) {
         for (Vol vol : Vol.listeVolsPlanifies) {
             if (vol.getNumeroVol() == numeroVol) {
-                System.out.println(vol.toString());
+                System.out.println(vol);
                 break;
             }
         }
