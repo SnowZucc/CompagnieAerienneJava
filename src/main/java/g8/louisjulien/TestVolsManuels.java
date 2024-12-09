@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TestVolsManuels
 {
-    public static void TestVolsManuels() {
+    public static void Tester() {
         // Création de 3 vols
         Vol vol1 = new Vol("Paris", "Tokyo",
                 LocalDateTime.of(2024, 1, 1, 10, 0),
