@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TraiterDataset {
-
     public static void importerVols(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine();
@@ -19,11 +18,16 @@ public class TraiterDataset {
                 int id = Integer.parseInt(values[0]);          // Mettre les trucs dans des variables
                 String origin = values[13];
                 String destination = values[14];
+                String numeroAvion = values[12];
+
                 LocalDateTime depTime = gererDateTime(values[19], values[4]); // Combinaison de time_hour et dep_time
                 LocalDateTime arrTime = gererDateTime(values[19], values[7]); // Combinaison de time_hour et arr_time
 
                 Vol vol = new Vol(origin, destination, depTime, arrTime);
                 vols.add(vol);
+
+                Avion avion = new Avion(0, numeroAvion, 345);
+                avion.affecterVol(vol);
 
                 // Passager fictif en attendant la vraie fonction
                 Passager passager = new Passager("NomPassager" + id, "Adresse" + id, 123456789, id, "01/01/2000", "Passeport" + id);
@@ -53,10 +57,10 @@ public class TraiterDataset {
                     hour,                           // Heure
                     minute                          // Minute
             );
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
             System.err.println("Erreur lors de l'analyse de l'heure : " + time + ". Exception : " + e.getMessage());
             return null;
         }
     }
-
 }

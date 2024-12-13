@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Affichage des vols planifiés");
         System.out.println("Il y a " + Vol.listeVolsPlanifies.size() + " vols planifiés.");
         for (int i = 0; i < Vol.listeVolsPlanifies.size(); i++) {
-            Vol vol = Vol.listeVolsPlanifies.get(i);                        // Récupère le vol à l'index i
+            Vol vol = Vol.listeVolsPlanifies.get(i);                        // Crée vols
             System.out.println(vol);
             System.out.println();
         }

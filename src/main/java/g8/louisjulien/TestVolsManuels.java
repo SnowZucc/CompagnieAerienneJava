@@ -50,16 +50,13 @@ public class TestVolsManuels
         Aeroport par1 = new Aeroport("Paris-Charles-de-Gaulle", "Paris");
         Aeroport tok1 = new Aeroport("Tokyo-Haneda", "Tokyo");
         Aeroport ber1 = new Aeroport("Willy-Brandt", "Berlin");
-        //        Affectation d'aéroports pour le vol1
+
         par1.affecterOrigine(vol1);
         tok1.affecterDestination(vol1);
-        //        Affectation d'aéroports pour le vol2
         tok1.affecterOrigine(vol2);
         par1.affecterDestination(vol2);
-        //        Affectation d'aéroports pour le vol1
         par1.affecterOrigine(vol3);
         ber1.affecterDestination(vol3);
-
 
         System.out.println("===== Classe Avion =====");
         Avion a1 = new Avion(47105, "A380", 520);
