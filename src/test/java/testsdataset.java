@@ -41,8 +41,8 @@ public class testsdataset {
         for (Passager passager : TraiterDataset.passagers) {
             passager.obtenirReservations();
 
-            assertTrue(Passager.listeReservations.size() > 0);
-            assertTrue(Passager.listeReservations.size() < 5);
+            assertTrue(passager.listeReservations.size() > 0);
+            assertTrue(passager.listeReservations.size() < 5);
             }
     }
 }

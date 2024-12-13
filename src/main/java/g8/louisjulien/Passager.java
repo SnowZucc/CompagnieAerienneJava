@@ -6,7 +6,7 @@ public class Passager extends Personne {
     private String Passeport;
     private int nbReservations;
 
-    public static HashMap<Integer, Reservation> listeReservations = new HashMap<>();       // Static
+    public HashMap<Integer, Reservation> listeReservations = new HashMap<>();       // Static
 
     public Passager(String Nom, String Adresse, int Contact, String Passeport) {
         super(Nom, Adresse, Contact);
