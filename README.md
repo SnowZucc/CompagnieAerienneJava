@@ -1,7 +1,6 @@
 # Compagnie aérienne
 
 ## To-Do List [plus à jour]
-A faire : les fonctions confirmerReservation et annulerReservation doivent ajouter et retirer la réservation dans la liste des vols reservés
 
 ### Classe Aeroport
 - [x] `affecterVol()`
