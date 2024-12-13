@@ -3,12 +3,12 @@ package g8.louisjulien;
 import java.util.HashMap;
 
 public class Passager extends Personne {
-    private Object Passeport;
+    private String Passeport;
     private int nbReservations;
 
     static HashMap<Integer, Reservation> listeReservations = new HashMap<>();       // Static
 
-    public Passager(String Nom, String Adresse, int Contact, int numeroEmploye, String dateEmbauche, Object Passeport) {
+    public Passager(String Nom, String Adresse, int Contact, String Passeport) {
         super(Nom, Adresse, Contact);
         this.Passeport = Passeport;
         this.nbReservations = 0;
@@ -38,6 +38,18 @@ public class Passager extends Personne {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "INFORMATIONS SUR LE PASSAGER " + this.Nom + " :"
+                + "\nTel: " + this.Contact
+                + "\nAdresse: " + this.getAdresse()
+                + "\nID Passeport: " + this.getPasseport()
+                + "\nIdentifiant Personne:" + this.getIdentifiant();
+    }
+
+
+//    -----------------------------------------  GETTERS  ---------------------------------------------------------
 
     public Object getPasseport() {
         return Passeport;

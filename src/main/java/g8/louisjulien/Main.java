@@ -15,5 +15,17 @@ public class Main {
             System.out.println(vol);
             System.out.println();
         }
+
+
+        TraiterDataset.importerPassagers("src/main/java/g8/louisjulien/Noms.txt");
+        System.out.println("===== Classe Passager =====");
+        System.out.println("Il y a " + TraiterDataset.passagers.size() + " passagers.");
+        System.out.println("Affichage de leurs informations personnelles et de leurs vols réservés:");
+        for (Passager passager : TraiterDataset.passagers) {
+            System.out.println(passager);
+            System.out.println("\nVOLS RESERVES :");
+            passager.obtenirReservations();
+            System.out.println();
+        }
     }
 }

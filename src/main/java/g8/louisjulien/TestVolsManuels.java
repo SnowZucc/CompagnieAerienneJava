@@ -99,7 +99,7 @@ public class TestVolsManuels
         System.out.println();
 
         System.out.println("===== Classe Passager =====");
-        Passager passager1 = new Passager("Jean-Marc", "123 Rue du nhfruogerhngerhilfh", 123456789, 0, "2024-12-01", "ABCDEF");
+        Passager passager1 = new Passager("Jean-Marc", "123 Rue du nhfruogerhngerhilfh", 123456789, "ABCDEF");
         System.out.println("Passeport de Jean-Marc : " + passager1.getPasseport());
         System.out.println();
 

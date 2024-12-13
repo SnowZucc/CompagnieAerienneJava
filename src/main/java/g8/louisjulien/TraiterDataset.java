@@ -6,12 +6,14 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TraiterDataset {
+
+    static List<Vol> vols = new ArrayList<>();
     public static void importerVols(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine();
-            List<Vol> vols = new ArrayList<>();
 
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");      // Diviser les lignes dans un tableau
@@ -26,11 +28,8 @@ public class TraiterDataset {
                 Vol vol = new Vol(origin, destination, depTime, arrTime);
                 vols.add(vol);
 
-                Avion avion = new Avion(0, numeroAvion, 345);
-                avion.affecterVol(vol);
-
                 // Passager fictif en attendant la vraie fonction
-                Passager passager = new Passager("NomPassager" + id, "Adresse" + id, 123456789, id, "01/01/2000", "Passeport" + id);
+                Passager passager = new Passager("NomPassager", "Adresse" + id, 123456789,"Passeport" + id);
                 passager.reserverVol(vol);
             }
             System.out.println("Vols importés avec succès : " + vols.size());
@@ -41,13 +40,13 @@ public class TraiterDataset {
 
     private static LocalDateTime gererDateTime(String timeHour, String time) {  // Fonction pour transformer les horaires en LocalDateTime
         String[] dateParts = timeHour.split(" ")[0].split("-");   // Divise la chaîne, espace comme délimiteur pour partie date (premier élément) puis divise cette date avec - comme délimiteur,
-                                                                               // puis stocke composants individuels dans tableaudateParts.
+        // puis stocke composants individuels dans tableaudateParts.
         try {
             String cleanedTime = time.split("\\.")[0];               // Enlever la partie décimale si elle existe
 
             int hour = cleanedTime.length() >= 2 ? Integer.parseInt(cleanedTime.substring(0, cleanedTime.length() - 2)) : 0;    // Vérifie si la longueur de cleanedTime est au moins 2 caractères,
-                                                                                                                                // puis extrait la partie correspondant aux heures (avant les deux derniers caractères).
-                                                                                                                                // Si la longueur est inférieure à 2, initialise l'heure à 0.
+            // puis extrait la partie correspondant aux heures (avant les deux derniers caractères).
+            // Si la longueur est inférieure à 2, initialise l'heure à 0.
             int minute = Integer.parseInt(cleanedTime.substring(cleanedTime.length() - 2));   // Extrait les deux derniers caractères de cleanedTime pour obtenir les minutes.
 
             return LocalDateTime.of(
@@ -57,10 +56,53 @@ public class TraiterDataset {
                     hour,                           // Heure
                     minute                          // Minute
             );
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.err.println("Erreur lors de l'analyse de l'heure : " + time + ". Exception : " + e.getMessage());
             return null;
         }
     }
+
+    static List<Passager> passagers = new ArrayList<>();
+    public static void importerPassagers(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String nom = reader.readLine();
+            Random rand  = new Random();
+            // On crée un passager par nom.
+            while ((nom = reader.readLine()) != null) {
+                String adresse = "";
+                int contact = rand.nextInt(999999999);
+                String passeport = "";
+                for (int i=0; i<7; i++) {
+                    passeport = passeport + (char) ('A' + rand.nextInt(26));
+                }
+
+                Passager passager = new Passager(nom, adresse, contact, passeport);
+                passagers.add(passager);
+                // Un passager peut réserver entre 1 et 4 vols.
+                int nbVols = rand.nextInt(1, 5);
+                for (int i=0; i<nbVols; i++) {
+                    // Chacun de ces vols est choisi au hasard dans la liste des vols remplie préremptivement.
+                    int vIdx = rand.nextInt(vols.size());
+                    Vol v = vols.get(vIdx);
+                    // On vérifie si le passager a déjà réservé ce vol.
+                    boolean bool = true;
+                    for (Passager p : v.listePassagers) {
+                        if (p == passager) {
+                            bool = false;
+                            break;
+                        }
+                    }
+                    // Un passager ne peut pas réserver un vol qu'il a déjà réservé.
+                    if (bool) {
+                        passager.reserverVol(v);
+                    }
+                }
+            }
+            System.out.println("Vols importés avec succès : " + vols.size());
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
+        }
+    }
+
+
 }
