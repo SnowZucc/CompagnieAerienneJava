@@ -118,7 +118,7 @@ public class TestVolsManuels
 
         // Test de confirmation de réservation
         System.out.println("Jean-Marc va maintenant confirmer sa réservation pour le vol N°0");
-        Reservation reservation1 = Passager.listeReservations.get(1);
+        Reservation reservation1 = passager1.listeReservations.get(1);
         reservation1.confirmerReservation(1);
 
         System.out.println("Réservations après confirmation de la réservation 1 (par Jean-Marc) :");
@@ -129,7 +129,7 @@ public class TestVolsManuels
         passager1.obtenirReservations();
 
         System.out.println("Modification : inversement de l'origine et de la destination :");
-        Reservation res1 = Passager.listeReservations.get(1);
+        Reservation res1 = passager1.listeReservations.get(1);
         res1.modifierReservation(1, "Confirmée", passager1, vol2);
         System.out.println("Réservation N°" + res1.numeroReservation + " - Statut : " + res1.getStatut() + " - Vol : " + res1.getVol().getOriginePasTableau() + " -> " + res1.getVol().getDestinationPasTableau());
         System.out.println();

@@ -69,21 +69,22 @@ public class TraiterDataset {
             Random rand  = new Random();
             // On crée un passager par nom.
             while ((nom = reader.readLine()) != null) {
-                String adresse = "";
+                String adresse = "";                            // Nous n'avons pas implémenté l'adresse
+                // Génération d'un contact (numéro de téléphone) aléatoire entre 00.00.00.00.00 et 09.99.99.99.99
                 int contact = rand.nextInt(999999999);
+                // Génération d'un code de passeport composé de lettres majuscules aléatoires.
                 String passeport = "";
                 for (int i=0; i<7; i++) {
                     passeport = passeport + (char) ('A' + rand.nextInt(26));
                 }
-
+                // Nouvelle instance de passager.
                 Passager passager = new Passager(nom, adresse, contact, passeport);
                 passagers.add(passager);
                 // Un passager peut réserver entre 1 et 4 vols.
-                int nbVols = rand.nextInt(1, 5);
+                int nbVols = 1 + rand.nextInt(4);
                 for (int i=0; i<nbVols; i++) {
                     // Chacun de ces vols est choisi au hasard dans la liste des vols remplie préremptivement.
-                    int vIdx = rand.nextInt(vols.size());
-                    Vol v = vols.get(vIdx);
+                    Vol v = vols.get(rand.nextInt(vols.size()));
                     // On vérifie si le passager a déjà réservé ce vol.
                     boolean bool = true;
                     for (Passager p : v.listePassagers) {
@@ -98,7 +99,7 @@ public class TraiterDataset {
                     }
                 }
             }
-            System.out.println("Vols importés avec succès : " + vols.size());
+            System.out.println("Passagers importés avec succès!");
         } catch (IOException e) {
             System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
         }

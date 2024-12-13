@@ -21,7 +21,8 @@ public class Main {
         System.out.println("===== Classe Passager =====");
         System.out.println("Il y a " + TraiterDataset.passagers.size() + " passagers.");
         System.out.println("Affichage de leurs informations personnelles et de leurs vols réservés:");
-        for (Passager passager : TraiterDataset.passagers) {
+        for (int i = 0; i < TraiterDataset.passagers.size(); i++) {
+            Passager passager = TraiterDataset.passagers.get(i);
             System.out.println(passager);
             System.out.println("\nVOLS RESERVES :");
             passager.obtenirReservations();
