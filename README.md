@@ -1,20 +1,20 @@
 # Compagnie aérienne
 
-## To-Do List
+## To-Do List [plus à jour]
 A faire : les fonctions confirmerReservation et annulerReservation doivent ajouter et retirer la réservation dans la liste des vols reservés
 
 ### Classe Aeroport
-- [ ] `affecterVol()`
+- [x] `affecterVol()`
 
 ### Classe Vol
 - [x] `planifierVol(Vol vol)`
-- [ ] `annulerVol()`
-- [ ] `modifierVol()`
-- [ ] `listingPassager()`
+- [x] `annulerVol()`
+- [x] `modifierVol()`
+- [x] `listingPassager()`
 
 ### Classe Avion
-- [ ] `affecterVol()`
-- [ ] `verifierDisponibilite()`
+- [x] `affecterVol()`
+- [x] `verifierDisponibilite()`
 
 ### Classe Reservation
 - [x] `confirmerReservation()`
@@ -22,20 +22,20 @@ A faire : les fonctions confirmerReservation et annulerReservation doivent ajout
 - [x] `ModifierReservation()`
 
 ### Classe Employe
-- [ ] `obtenirRole()`
+- [x] `obtenirRole()`
 
 ### Classe Passager
-- [ ] `reserverVol(Vol vol)`
-- [ ] `annulerReservation(int id)`
-- [ ] `obtenirReservations(int id)`
+- [x] `reserverVol(Vol vol)`
+- [x] `annulerReservation(int id)`
+- [x] `obtenirReservations(int id)`
 
 ### Classe Personne
-- [ ] `obtenirInfos()`
+- [x] `obtenirInfos()`
 
 ### Classe PersonnelCabine
-- [ ] `affecterVol()`
-- [ ] `obtenirVol()`
+- [x] `affecterVol()`
+- [x] `obtenirVol()`
 
 ### Classe Pilote
-- [ ] `affecterVol()`
-- [ ] `obtenirVol()`
+- [x] `affecterVol()`
+- [x] `obtenirVol()`
