@@ -1,32 +1,48 @@
+import g8.louisjulien.Passager;
 import g8.louisjulien.TraiterDataset;
 import g8.louisjulien.Vol;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class testsdataset {
-
+    @BeforeAll                          //
+    public static void setup() {
+        TraiterDataset.importerVols("src/main/java/g8/louisjulien/flightsCoupe.csv");   // Méthode qui se lance avant les tests et qui initialise l'importation depuis le csv
+        TraiterDataset.importerPassagers("src/main/java/g8/louisjulien/Noms.txt");
+    }
     @Test
     public void testerImportationVols() {
-        TraiterDataset.importerVols("src/main/java/g8/louisjulien/flightsCoupe.csv");
-
-        assertEquals(99, Vol.listeVolsPlanifies.size(), "Le nombre de vols importés devrait être 10.");
+        assertEquals(99, Vol.listeVolsPlanifies.size());        // Il doit y en avoir 100 - 1 qui est invalide
     }
 
     @Test
     public void testerOrigineDestination() {
-        TraiterDataset.importerVols("src/main/java/g8/louisjulien/flightsCoupe.csv");
+        assertEquals(99, Vol.listeVolsPlanifies.size());
 
-        // Vérifiez les détails d'un vol (par exemple, le premier vol)
         Vol vol = Vol.listeVolsPlanifies.get(0);
-        assertEquals("EWR, null", vol.getOriginePasTableau());
-        assertEquals("IAH, null", vol.getDestinationPasTableau());
+        assertEquals("EWR, null", vol.getOriginePasTableau());      // Vérifier que l'origine et la destination sont bien importés depuis dataset.
+        assertEquals("IAH, null", vol.getDestinationPasTableau());  // null car il n'y a pas les aéroports dans le dataset
     }
 
     @Test
-    public void testerPassagers() {
-        Vol vol = Vol.listeVolsPlanifies.get(0);
-        // Vérifiez la création des passagers
-        assertEquals(1, vol.listePassagers.size(), "Chaque vol devrait avoir un passager associé.");
-        assertEquals("NomPassager0", vol.listePassagers.get(0).getNom(), "Le nom du passager ne correspond pas.");
+    public void testListingPassagers() {        // Tester que chaque vol a entre 1 et 4200 passagers
+        for (Vol vol : TraiterDataset.vols) {
+            vol.listingPassager();
+
+            assertNotNull(vol.listePassagers);
+            assertTrue(vol.listePassagers.size() > 0);
+            assertTrue(vol.listePassagers.size() < 4200);
+        }
+    }
+
+    @Test
+    public void testReservationsPassagers() {       // Vérifier que les passagers ont bien entre 1 et 4 réservations
+        for (Passager passager : TraiterDataset.passagers) {
+            passager.obtenirReservations();
+
+            assertTrue(Passager.listeReservations.size() > 0);
+            assertTrue(Passager.listeReservations.size() < 5);
+            }
     }
 }

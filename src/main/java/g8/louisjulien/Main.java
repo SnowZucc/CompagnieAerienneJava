@@ -2,9 +2,10 @@ package g8.louisjulien;
 
 public class Main {
     public static void main(String[] args) {
-//         TestVolsManuels.Tester();
-//         LectureFichier.main();
+//         TestVolsManuels.Tester();        // Tester manuellement les vols avec l'ancienne méthode
+//         LectureFichier.main();           // Tester la lecture de fichiers
 
+        // Tester l'importation de vols depuis le csv (ancien, voir tests unitaires)
         TraiterDataset.importerVols("src/main/java/g8/louisjulien/flightsCoupe.csv");
 
         System.out.println("===== Classe Vol =====");

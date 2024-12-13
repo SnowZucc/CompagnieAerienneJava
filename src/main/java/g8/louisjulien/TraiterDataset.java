@@ -7,10 +7,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 public class TraiterDataset {
 
-    static List<Vol> vols = new ArrayList<>();
+    public static List<Vol> vols = new ArrayList<>();
     public static void importerVols(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine();
@@ -62,7 +61,7 @@ public class TraiterDataset {
         }
     }
 
-    static List<Passager> passagers = new ArrayList<>();
+    public static List<Passager> passagers = new ArrayList<>();
     public static void importerPassagers(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String nom = reader.readLine();
